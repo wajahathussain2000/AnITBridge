@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import '../styles/Navbar.css';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,6 +20,18 @@ const Navbar = () => {
     setIsOpen(false); // Close menu on route change
   }, [location]);
 
+  const handleAboutClick = (e) => {
+    e.preventDefault();
+    if (location.pathname === '/') {
+      const section = document.getElementById('why-choose-us');
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      navigate('/', { state: { scrollTo: 'why-choose-us' } });
+    }
+  };
+
   return (
     <nav className={`navbar${scrolled ? ' navbar-scrolled' : ''}`}>  
       <div className="navbar-container">
@@ -29,7 +42,7 @@ const Navbar = () => {
         </div>
         <ul className={isOpen ? 'nav-menu active' : 'nav-menu'}>
           <li className="nav-item"><Link to="/" className="nav-links">Home</Link></li>
-          <li className="nav-item"><Link to="/about" className="nav-links">About Us</Link></li>
+          <li className="nav-item"><a href="#why-choose-us" className="nav-links" onClick={handleAboutClick}>About Us</a></li>
           <li className="nav-item nav-dropdown">
             <span className="nav-links">Services <i className="fas fa-caret-down"></i></span>
             {/* Dropdown can be implemented here if needed */}

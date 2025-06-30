@@ -27,7 +27,7 @@ const features = [
 
 const WhyChooseUsSection = () => {
   return (
-    <section className="why-choose-us-section">
+    <section className="why-choose-us-section" id="why-choose-us">
       <div className="why-choose-us-content">
         <div className="why-choose-us-left">
           <div className="why-choose-us-badge">Why Choose Us</div>

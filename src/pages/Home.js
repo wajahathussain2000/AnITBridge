@@ -3,11 +3,22 @@ import '../styles/Home.css';
 import LogoSlider from '../components/LogoSlider';
 import ConsultingServicesSection from '../components/ConsultingServicesSection';
 import WhyChooseUsSection from '../components/WhyChooseUsSection';
+import { useLocation } from 'react-router-dom';
 
 const HeroImage =
   'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&w=800&q=80';
 
 const Home = () => {
+  const location = useLocation();
+  React.useEffect(() => {
+    if (location.state && location.state.scrollTo === 'why-choose-us') {
+      const section = document.getElementById('why-choose-us');
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
+
   return (
     <div className="home">
       {/* Hero Section */}
