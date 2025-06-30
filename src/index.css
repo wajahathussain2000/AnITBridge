@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fff;
+  color: #222;
+}
+
+section {
+  box-sizing: border-box;
+}
+
+@media (max-width: 800px) {
+  section {
+    flex-direction: column !important;
+    align-items: center;
+  }
+  section iframe {
+    width: 90vw;
+    max-width: 360px;
+    height: 215px;
+  }
+} 
