@@ -6,7 +6,7 @@ const features = [
   {
     icon: <FaProjectDiagram size={28} />, 
     title: 'Our Approach',
-    desc: 'At ClovVista, we take a holistic approach to consulting. We work closely with our clients to understand their goals and challenges, and develop solutions that address their specific needs. Our approach is collaborative, transparent, and results-driven.'
+    desc: 'At AnITBridge, we take a holistic approach to consulting. We work closely with our clients to understand their goals and challenges, and develop solutions that address their specific needs. Our approach is collaborative, transparent, and results-driven.'
   },
   {
     icon: <FaLightbulb size={28} />, 
@@ -16,12 +16,12 @@ const features = [
   {
     icon: <FaUsers size={28} />, 
     title: 'Our Expertise',
-    desc: 'Our team at ClovVista is made up of highly skilled professionals with diverse backgrounds. We work together to provide our clients with tailored solutions that meet their unique needs. Meet our team and learn more about our individual areas of expertise.'
+    desc: 'Our team at AnITBridge is made up of highly skilled professionals with diverse backgrounds. We work together to provide our clients with tailored solutions that meet their unique needs. Meet our team and learn more about our individual areas of expertise.'
   },
   {
     icon: <FaIndustry size={28} />, 
     title: 'Industry Expertise',
-    desc: 'At ClovVista, we have years of experience in the consulting industry. We specialize in providing top-notch services in areas such as marketing, strategy, and operations. Our expertise can help take your business to the next level.'
+    desc: 'At AnITBridge, we have years of experience in the consulting industry. We specialize in providing top-notch services in areas such as marketing, strategy, and operations. Our expertise can help take your business to the next level.'
   },
 ];
 

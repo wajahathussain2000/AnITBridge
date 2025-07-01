@@ -527,13 +527,18 @@
 
 /* --- Logo Slider Section --- */
 .logo-slider-section {
-  width: 100%;
+  width: 100vw;
   background: #fff;
   padding: 36px 0 24px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 64px;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 
 .logo-slider-title {
@@ -550,9 +555,9 @@
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
-  width: 100%;
-  max-width: 1400px;
-  padding: 0 16px;
+  width: 100vw;
+  max-width: none;
+  padding: 0;
   scroll-behavior: smooth;
   scrollbar-width: none;
 }

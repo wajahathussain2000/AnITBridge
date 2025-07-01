@@ -1,9 +1,22 @@
 import React from 'react';
 import '../styles/About.css';
+import HeroSection from '../components/HeroSection';
+import ProjectInfoSection from '../components/ProjectInfoSection';
+import Navbar from '../components/Navbar';
 
 const About = () => {
   return (
     <div className="about">
+      <Navbar />
+      <HeroSection title="Project Details" />
+      <ProjectInfoSection
+        projectName="About Our Company"
+        year="2024"
+        industry="IT Consulting"
+        tags={["Expertise", "Experience", "Trust"]}
+        description={`Learn more about our journey, values, and the expertise we bring to every project.\n\nWe are committed to delivering excellence and building lasting partnerships.`}
+      />
+
       <section className="about-hero">
         <h1>About Us</h1>
         <p>Building bridges between technology and success</p>

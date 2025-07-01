@@ -7,6 +7,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const [servicesDropdown, setServicesDropdown] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,21 +38,34 @@ const Navbar = () => {
       <div className="navbar-container">
         <div className="navbar-logo-area">
           {/* Placeholder logo, replace src with your logo if available */}
-          <img src="images/logo.png" alt="Logo" className="navbar-logo-img" />
+          <img src="/images/logo.png" alt="Logo" className="navbar-logo-img" />
           <span className="navbar-logo-text">AnITBridge</span>
         </div>
         <ul className={isOpen ? 'nav-menu active' : 'nav-menu'}>
           <li className="nav-item"><Link to="/" className="nav-links">Home</Link></li>
           <li className="nav-item"><a href="#why-choose-us" className="nav-links" onClick={handleAboutClick}>About Us</a></li>
-          <li className="nav-item nav-dropdown">
+          <li
+            className="nav-item nav-dropdown"
+            onMouseEnter={() => setServicesDropdown(true)}
+            onMouseLeave={() => setServicesDropdown(false)}
+            onClick={() => setServicesDropdown(!servicesDropdown)}
+            style={{position: 'relative'}}
+          >
             <span className="nav-links">Services <i className="fas fa-caret-down"></i></span>
-            {/* Dropdown can be implemented here if needed */}
+            {servicesDropdown && (
+              <ul className="dropdown-menu">
+                <li><Link to="/services/cloud" className="dropdown-link">Cloud Infrastructure & Solution</Link></li>
+                <li><Link to="/services/network" className="dropdown-link">IT Network & Support</Link></li>
+                <li><Link to="/services/webapp" className="dropdown-link">Web & App Development</Link></li>
+                <li><Link to="/services/uiux" className="dropdown-link">UI/UX Design</Link></li>
+              </ul>
+            )}
           </li>
           <li className="nav-item"><Link to="/projects" className="nav-links">Projects</Link></li>
           <li className="nav-item"><Link to="/contact" className="nav-links">Contact</Link></li>
         </ul>
         <div className="navbar-right">
-          <Link to="/quote" className="quote-btn">GET A QUOTE</Link>
+          <Link to="/contact" className="quote-btn">GET A QUOTE</Link>
           <div className="menu-icon" onClick={() => setIsOpen(!isOpen)}>
             <i className={isOpen ? 'fas fa-times' : 'fas fa-bars'} />
           </div>

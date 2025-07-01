@@ -3,13 +3,16 @@ import '../styles/Home.css';
 import LogoSlider from '../components/LogoSlider';
 import ConsultingServicesSection from '../components/ConsultingServicesSection';
 import WhyChooseUsSection from '../components/WhyChooseUsSection';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar';
+import AnimatedNumber from '../components/AnimatedNumber';
 
 const HeroImage =
   'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&w=800&q=80';
 
 const Home = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   React.useEffect(() => {
     if (location.state && location.state.scrollTo === 'why-choose-us') {
       const section = document.getElementById('why-choose-us');
@@ -21,6 +24,7 @@ const Home = () => {
 
   return (
     <div className="home">
+      <Navbar />
       {/* Hero Section */}
       <section className="hero-section">
         {/* Decorative Circles */}
@@ -57,9 +61,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-    
-
       {/* Solutions/Features Section */}
       <section className="solutions-section">
         <div className="solutions-content-wrapper">
@@ -85,10 +86,8 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       {/* Logo Slider Section */}
       <LogoSlider />
-
       {/* Consulting Services Section */}
       <ConsultingServicesSection />
       {/* Innovate Execute Excel Section */}
@@ -102,7 +101,6 @@ const Home = () => {
         </span>
       </section>
       <WhyChooseUsSection />
-
       {/* Our Impact in Numbers Section */}
       <section className="impact-numbers-section">
         <div className="impact-numbers-badge">Driving Success, Together.</div>
@@ -117,23 +115,22 @@ const Home = () => {
         <div className="impact-numbers-stats-card">
           <div className="impact-numbers-stat">
             <div className="impact-numbers-stat-title">Value Generated For Clients</div>
-            <div className="impact-numbers-stat-value">$ 3,000,000</div>
+            <div className="impact-numbers-stat-value"><AnimatedNumber value={3000000} prefix="$ " /></div>
           </div>
           <div className="impact-numbers-stat">
             <div className="impact-numbers-stat-title">Hours Of Consultation</div>
-            <div className="impact-numbers-stat-value">5,000 +</div>
+            <div className="impact-numbers-stat-value"><AnimatedNumber value={5000} suffix=" +" /></div>
           </div>
           <div className="impact-numbers-stat">
             <div className="impact-numbers-stat-title">Active Client Partnerships</div>
-            <div className="impact-numbers-stat-value">10 +</div>
+            <div className="impact-numbers-stat-value"><AnimatedNumber value={10} suffix=" +" /></div>
           </div>
           <div className="impact-numbers-stat">
             <div className="impact-numbers-stat-title">Years In Business</div>
-            <div className="impact-numbers-stat-value">7 +</div>
+            <div className="impact-numbers-stat-value"><AnimatedNumber value={7} suffix=" +" /></div>
           </div>
         </div>
       </section>
-
       {/* Pricing Plans Section */}
       <section className="pricing-section">
         <div className="pricing-badge">Our Pricing</div>
@@ -192,7 +189,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       {/* Call to Action Section with Building Background */}
       <section className="cta-buildings-section">
         <div className="cta-buildings-overlay">
@@ -200,10 +196,9 @@ const Home = () => {
             Your Vision. Our Strategy.<br />
             Unlocking Tomorrow's Success, Today
           </h2>
-          <button className="cta-buildings-btn">GET A QUOTE</button>
+          <button className="cta-buildings-btn" onClick={() => navigate('/contact')}>GET A QUOTE</button>
         </div>
       </section>
-
       {/* Testimonials Section */}
       <section className="testimonials-section">
         <div className="testimonials-content-wrapper">
@@ -225,7 +220,7 @@ const Home = () => {
                     <div className="testimonial-quote-mark">“</div>
                     <div className="testimonial-stars">★★★★★</div>
                     <div className="testimonial-text">
-                      ClovVista has done an amazing job. We are in awe of their depth of knowledge and communication skills
+                      AnITBridge has done an amazing job. We are in awe of their depth of knowledge and communication skills
                     </div>
                     <div className="testimonial-client">Upwork, Inc.</div>
                     <div className="testimonial-quote-mark end">”</div>
@@ -234,7 +229,7 @@ const Home = () => {
                     <div className="testimonial-quote-mark">“</div>
                     <div className="testimonial-stars">★★★★★</div>
                     <div className="testimonial-text">
-                      Working with ClovVista Consulting has been an incredibly positive experience, and I cannot recommend them highly enough. Their expertise is Acme, combined with a strong work ethic and excellent communication skills, makes them an invaluable asset to any project. I look forward to the opportunity to collaborate with them again in the future
+                      Working with AnITBridge Consulting has been an incredibly positive experience, and I cannot recommend them highly enough. Their expertise is Acme, combined with a strong work ethic and excellent communication skills, makes them an invaluable asset to any project. I look forward to the opportunity to collaborate with them again in the future
                     </div>
                     <div className="testimonial-client">Upwork, Inc.</div>
                     <div className="testimonial-quote-mark end">”</div>
@@ -246,7 +241,7 @@ const Home = () => {
                     <div className="testimonial-quote-mark">“</div>
                     <div className="testimonial-stars">★★★★★</div>
                     <div className="testimonial-text">
-                      The ClovVista team exceeded our expectations. Their professionalism and results-driven approach made a real difference for our business.
+                      The AnITBridge team exceeded our expectations. Their professionalism and results-driven approach made a real difference for our business.
                     </div>
                     <div className="testimonial-client">Acme Corp.</div>
                     <div className="testimonial-quote-mark end">”</div>
@@ -255,7 +250,7 @@ const Home = () => {
                     <div className="testimonial-quote-mark">“</div>
                     <div className="testimonial-stars">★★★★★</div>
                     <div className="testimonial-text">
-                      Exceptional service and communication throughout the project. We achieved our goals faster thanks to ClovVista's expertise.
+                      Exceptional service and communication throughout the project. We achieved our goals faster thanks to AnITBridge's expertise.
                     </div>
                     <div className="testimonial-client">Beta LLC</div>
                     <div className="testimonial-quote-mark end">”</div>

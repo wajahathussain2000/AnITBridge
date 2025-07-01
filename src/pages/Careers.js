@@ -1,5 +1,8 @@
 import React from 'react';
 import '../styles/Careers.css';
+import Navbar from '../components/Navbar';
+import HeroSection from '../components/HeroSection';
+import ProjectInfoSection from '../components/ProjectInfoSection';
 
 const Careers = () => {
   const jobOpenings = [
@@ -43,6 +46,16 @@ const Careers = () => {
 
   return (
     <div className="careers">
+      <Navbar />
+      <HeroSection title="Project Details" />
+      <ProjectInfoSection
+        projectName="Careers at AnITBridge"
+        year="2024"
+        industry="IT & Consulting"
+        tags={["Jobs", "Growth", "Opportunities"]}
+        description={`Join our team and help shape the future of IT consulting.\n\nWe offer exciting career opportunities for talented professionals.`}
+      />
+
       <section className="careers-hero">
         <h1>Join Our Team</h1>
         <p>Build the future of technology with us</p>
