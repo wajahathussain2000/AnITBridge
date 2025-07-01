@@ -13,6 +13,9 @@ const HeroImage =
 const Home = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const [impactVisible, setImpactVisible] = React.useState(false);
+  const impactRef = React.useRef(null);
+
   React.useEffect(() => {
     if (location.state && location.state.scrollTo === 'why-choose-us') {
       const section = document.getElementById('why-choose-us');
@@ -21,6 +24,22 @@ const Home = () => {
       }
     }
   }, [location]);
+
+  React.useEffect(() => {
+    const observer = new window.IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setImpactVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    if (impactRef.current) {
+      observer.observe(impactRef.current);
+    }
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="home">
@@ -102,7 +121,7 @@ const Home = () => {
       </section>
       <WhyChooseUsSection />
       {/* Our Impact in Numbers Section */}
-      <section className="impact-numbers-section">
+      <section className="impact-numbers-section" ref={impactRef}>
         <div className="impact-numbers-badge">Driving Success, Together.</div>
         <h2 className="impact-numbers-heading">Our Impact in Numbers</h2>
         <div className="impact-numbers-map-wrapper">
@@ -115,19 +134,19 @@ const Home = () => {
         <div className="impact-numbers-stats-card">
           <div className="impact-numbers-stat">
             <div className="impact-numbers-stat-title">Value Generated For Clients</div>
-            <div className="impact-numbers-stat-value"><AnimatedNumber value={3000000} prefix="$ " /></div>
+            <div className="impact-numbers-stat-value">{impactVisible && <AnimatedNumber value={3000000} prefix="$ " />}</div>
           </div>
           <div className="impact-numbers-stat">
             <div className="impact-numbers-stat-title">Hours Of Consultation</div>
-            <div className="impact-numbers-stat-value"><AnimatedNumber value={5000} suffix=" +" /></div>
+            <div className="impact-numbers-stat-value">{impactVisible && <AnimatedNumber value={5000} suffix=" +" />}</div>
           </div>
           <div className="impact-numbers-stat">
             <div className="impact-numbers-stat-title">Active Client Partnerships</div>
-            <div className="impact-numbers-stat-value"><AnimatedNumber value={10} suffix=" +" /></div>
+            <div className="impact-numbers-stat-value">{impactVisible && <AnimatedNumber value={10} suffix=" +" />}</div>
           </div>
           <div className="impact-numbers-stat">
             <div className="impact-numbers-stat-title">Years In Business</div>
-            <div className="impact-numbers-stat-value"><AnimatedNumber value={7} suffix=" +" /></div>
+            <div className="impact-numbers-stat-value">{impactVisible && <AnimatedNumber value={7} suffix=" +" />}</div>
           </div>
         </div>
       </section>

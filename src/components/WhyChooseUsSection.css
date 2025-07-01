@@ -63,6 +63,7 @@
   min-height: 100px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   transition: background 0.3s ease, color 0.3s ease;
+  border: 2.5px solid #015e76;
 }
 
 /* Hover state: dark blue background */
@@ -118,11 +119,13 @@
 
 .why-choose-us-image-wrapper {
   position: relative;
-  width: 440px;
-  height: 340px;
+  width: 480px;
+  height: 900px;
   border-radius: 28px;
   overflow: hidden;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  margin-left: 60px;
+  margin-top: 60px;
 }
 
 .why-choose-us-image {
