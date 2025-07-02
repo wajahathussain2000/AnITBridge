@@ -261,6 +261,41 @@
   .logo-slider {
     gap: 0.5rem;
   }
+  .consulting-cards, .consulting-cards-nowrap {
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 16px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .consulting-card {
+    width: 98vw !important;
+    min-width: 0 !important;
+    max-width: 100vw !important;
+    margin: 0 auto 16px auto !important;
+  }
+  .consulting-card-img-wrapper {
+    height: 140px !important;
+  }
+  .consulting-card-title {
+    min-width: 0 !important;
+    font-size: 1rem !important;
+    padding: 8px 8px 8px 18px !important;
+  }
+  .consulting-card-badge {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 1.1rem !important;
+    margin-right: -8px !important;
+  }
+  .consulting-title {
+    font-size: 1.2rem !important;
+    max-width: 98vw !important;
+    text-align: center !important;
+  }
 }
 
 @media (max-width: 960px) {
@@ -1380,19 +1415,24 @@
     margin-left: 10px;
   }
   .testimonials-slider {
-    margin-right: 0;
-    width: 100vw;
+    width: 100vw !important;
+    margin-right: 0 !important;
+    animation: none !important;
+    transition: none !important;
+    display: block !important;
+    will-change: auto !important;
   }
   .testimonials-slide {
-    min-width: 100vw;
-    gap: 8px;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column !important;
+    align-items: center !important;
+    min-width: 100vw !important;
+    gap: 0 !important;
   }
   .testimonial-card {
-    min-width: 90vw;
-    max-width: 98vw;
-    padding: 18px 8px 12px 8px;
+    width: 98vw !important;
+    max-width: 98vw !important;
+    min-width: 0 !important;
+    margin-bottom: 18px !important;
   }
 }
 

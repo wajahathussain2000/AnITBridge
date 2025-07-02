@@ -182,6 +182,10 @@
   display: none !important;
 }
 
+.navbar-scrolled .menu-icon {
+  color: #006d77 !important;
+}
+
 @media screen and (max-width: 1200px) {
   .navbar .navbar-container {
     max-width: 100vw;

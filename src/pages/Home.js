@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/Home.css';
 import LogoSlider from '../components/LogoSlider';
 import ConsultingServicesSection from '../components/ConsultingServicesSection';
@@ -10,11 +10,41 @@ import AnimatedNumber from '../components/AnimatedNumber';
 const HeroImage =
   'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&w=800&q=80';
 
+const testimonials = [
+  {
+    text: "AnITBridge has done an amazing job. We are in awe of their depth of knowledge and communication skills",
+    client: "Upwork, Inc."
+  },
+  {
+    text: "Working with AnITBridge Consulting has been an incredibly positive experience, and I cannot recommend them highly enough. Their expertise is Acme, combined with a strong work ethic and excellent communication skills, makes them an invaluable asset to any project. I look forward to the opportunity to collaborate with them again in the future",
+    client: "Upwork, Inc."
+  },
+  {
+    text: "The AnITBridge team exceeded our expectations. Their professionalism and results-driven approach made a real difference for our business.",
+    client: "Acme Corp."
+  },
+  {
+    text: "Exceptional service and communication throughout the project. We achieved our goals faster thanks to AnITBridge's expertise.",
+    client: "Beta LLC"
+  }
+];
+
 const Home = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [impactVisible, setImpactVisible] = React.useState(false);
   const impactRef = React.useRef(null);
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const isMobile = window.innerWidth <= 700;
+
+  // Auto-advance testimonial on mobile
+  React.useEffect(() => {
+    if (!isMobile) return;
+    const interval = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 3500); // 3.5 seconds per testimonial
+    return () => clearInterval(interval);
+  }, [isMobile, testimonials.length]);
 
   React.useEffect(() => {
     if (location.state && location.state.scrollTo === 'why-choose-us') {
@@ -221,7 +251,6 @@ const Home = () => {
       {/* Testimonials Section */}
       <section className="testimonials-section">
         <div className="testimonials-content-wrapper">
-          {/* Left Side: Text */}
           <div className="testimonials-left">
             <div className="testimonials-badge">TESTIMONIALS</div>
             <h2 className="testimonials-heading">Trusted Voices, Proven Results</h2>
@@ -229,52 +258,32 @@ const Home = () => {
               Hear directly from our valued clients about their experiences with our consulting services.
             </div>
           </div>
-          {/* Right Side: Slider */}
           <div className="testimonials-right">
             <div className="testimonials-slider-wrapper">
-              <div className="testimonials-slider">
-                {/* Slide 1: Pair 1 */}
-                <div className="testimonials-slide">
-                  <div className="testimonial-card">
+              <div className="testimonials-slider" style={isMobile ? {display: 'block', width: '100%'} : {}}>
+                {isMobile ? (
+                  <div className="testimonial-card" style={{margin: '0 auto'}}>
                     <div className="testimonial-quote-mark">“</div>
                     <div className="testimonial-stars">★★★★★</div>
-                    <div className="testimonial-text">
-                      AnITBridge has done an amazing job. We are in awe of their depth of knowledge and communication skills
-                    </div>
-                    <div className="testimonial-client">Upwork, Inc.</div>
+                    <div className="testimonial-text">{testimonials[currentTestimonial].text}</div>
+                    <div className="testimonial-client">{testimonials[currentTestimonial].client}</div>
                     <div className="testimonial-quote-mark end">”</div>
                   </div>
-                  <div className="testimonial-card">
-                    <div className="testimonial-quote-mark">“</div>
-                    <div className="testimonial-stars">★★★★★</div>
-                    <div className="testimonial-text">
-                      Working with AnITBridge Consulting has been an incredibly positive experience, and I cannot recommend them highly enough. Their expertise is Acme, combined with a strong work ethic and excellent communication skills, makes them an invaluable asset to any project. I look forward to the opportunity to collaborate with them again in the future
+                ) : (
+                  [0, 2].map((start, i) => (
+                    <div className="testimonials-slide" key={i}>
+                      {testimonials.slice(start, start + 2).map((t, idx) => (
+                        <div className="testimonial-card" key={idx}>
+                          <div className="testimonial-quote-mark">“</div>
+                          <div className="testimonial-stars">★★★★★</div>
+                          <div className="testimonial-text">{t.text}</div>
+                          <div className="testimonial-client">{t.client}</div>
+                          <div className="testimonial-quote-mark end">”</div>
+                        </div>
+                      ))}
                     </div>
-                    <div className="testimonial-client">Upwork, Inc.</div>
-                    <div className="testimonial-quote-mark end">”</div>
-                  </div>
-                </div>
-                {/* Slide 2: Pair 2 (add more testimonials as needed) */}
-                <div className="testimonials-slide">
-                  <div className="testimonial-card">
-                    <div className="testimonial-quote-mark">“</div>
-                    <div className="testimonial-stars">★★★★★</div>
-                    <div className="testimonial-text">
-                      The AnITBridge team exceeded our expectations. Their professionalism and results-driven approach made a real difference for our business.
-                    </div>
-                    <div className="testimonial-client">Acme Corp.</div>
-                    <div className="testimonial-quote-mark end">”</div>
-                  </div>
-                  <div className="testimonial-card">
-                    <div className="testimonial-quote-mark">“</div>
-                    <div className="testimonial-stars">★★★★★</div>
-                    <div className="testimonial-text">
-                      Exceptional service and communication throughout the project. We achieved our goals faster thanks to AnITBridge's expertise.
-                    </div>
-                    <div className="testimonial-client">Beta LLC</div>
-                    <div className="testimonial-quote-mark end">”</div>
-                  </div>
-                </div>
+                  ))
+                )}
               </div>
             </div>
           </div>
