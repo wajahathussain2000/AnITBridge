@@ -7,6 +7,7 @@
   align-items: center;
   padding-left: 8vw;
   margin-bottom: 48px;
+  padding-top: 88px;
 }
 
 .projects-hero-content {
@@ -39,6 +40,31 @@
   }
   .projects-hero-content p {
     font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .projects-hero-content h1 {
+    font-size: 1.1rem;
+  }
+  .projects-hero-content p {
+    font-size: 0.8rem;
+  }
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .project-card {
+    flex-direction: column;
+    min-height: 180px;
+  }
+  .project-card-left {
+    min-width: 100%;
+    max-width: 100%;
+    padding: 12px 6px 8px 6px;
+  }
+  .project-card-title {
+    font-size: 1rem;
   }
 }
 
@@ -253,5 +279,11 @@
   .project-card-hover-info {
     font-size: 0.95rem;
     padding: 8px 10px 8px 10px;
+  }
+}
+
+@media (max-width: 960px) {
+  .projects-hero {
+    padding-top: 70px;
   }
 } 

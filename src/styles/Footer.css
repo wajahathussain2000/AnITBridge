@@ -64,4 +64,17 @@
   .footer-section {
     margin-bottom: 2rem;
   }
+}
+
+@media screen and (max-width: 600px) {
+  .footer-container {
+    padding: 0 8px;
+  }
+  .footer-section h3 {
+    font-size: 1rem;
+  }
+  .footer-bottom {
+    padding-top: 1rem;
+    font-size: 0.95rem;
+  }
 } 

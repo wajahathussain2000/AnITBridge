@@ -58,4 +58,18 @@
   .project-info-section {
     padding: 0 8px;
   }
+}
+@media (max-width: 600px) {
+  .project-info-bar {
+    flex-direction: column;
+    gap: 6px;
+    padding: 8px 4px 6px 4px;
+    font-size: 0.95rem;
+  }
+  .project-info-section {
+    padding: 0 2px;
+  }
+  .project-info-heading {
+    font-size: 1.1rem;
+  }
 } 

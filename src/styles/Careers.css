@@ -13,6 +13,7 @@
   justify-content: center;
   text-align: center;
   color: #fff;
+  padding-top: 88px;
 }
 
 .careers-hero h1 {
@@ -196,5 +197,33 @@
   .job-meta {
     flex-direction: column;
     gap: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .careers-hero h1 {
+    font-size: 1.2rem;
+  }
+  .careers-hero p {
+    font-size: 0.9rem;
+  }
+  .why-join-us h2, .careers-cta h2 {
+    font-size: 1.2rem;
+  }
+  .benefits-grid, .jobs-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .benefit-card, .job-card {
+    padding: 1rem;
+  }
+  .careers-cta p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .careers-hero {
+    padding-top: 70px;
   }
 } 

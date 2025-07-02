@@ -3,10 +3,19 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #fff;
   color: #222;
+  scroll-padding-top: 88px;
 }
 
 section {
   box-sizing: border-box;
+}
+
+html {
+  box-sizing: border-box;
+  scroll-padding-top: 88px;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 @media (max-width: 800px) {
@@ -18,5 +27,29 @@ section {
     width: 90vw;
     max-width: 360px;
     height: 215px;
+  }
+}
+
+@media (max-width: 600px) {
+  html, body {
+    overflow-x: hidden !important;
+    width: 100vw;
+    max-width: 100vw;
+  }
+  .hero-left, .hero-right, .hero-content-wrapper, .hero-image-card-wrapper, .hero-image-card, .testimonials-left, .testimonials-right, .testimonials-content-wrapper, .testimonials-slider, .testimonials-slide, .testimonial-card, .footer-container, .projects-grid, .projects-grid-wrapper, .services-grid, .benefits-grid, .about-content, .team-grid, .values-grid {
+    min-width: 0 !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
+@media (max-width: 960px) {
+  html, body {
+    scroll-padding-top: 70px;
   }
 } 

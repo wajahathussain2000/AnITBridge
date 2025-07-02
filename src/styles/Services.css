@@ -13,6 +13,7 @@
   justify-content: center;
   text-align: center;
   color: #fff;
+  padding-top: 88px;
 }
 
 .services-hero h1 {
@@ -143,5 +144,28 @@
 
   .benefits-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .services-hero h1 {
+    font-size: 1.5rem;
+  }
+  .services-hero p {
+    font-size: 1rem;
+  }
+  .services-grid, .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 2rem 4px;
+  }
+  .service-card, .benefit-card {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .services-hero {
+    padding-top: 70px;
   }
 } 

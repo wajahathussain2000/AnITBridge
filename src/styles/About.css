@@ -13,6 +13,7 @@
   justify-content: center;
   text-align: center;
   color: #fff;
+  padding-top: 88px;
 }
 
 .about-hero h1 {
@@ -128,5 +129,30 @@
 
   .team-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .about-hero h1 {
+    font-size: 1.2rem;
+  }
+  .about-hero p {
+    font-size: 0.9rem;
+  }
+  .about-section h2 {
+    font-size: 1.2rem;
+  }
+  .values-grid, .team-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .value-card, .team-member {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .about-hero {
+    padding-top: 70px;
   }
 } 

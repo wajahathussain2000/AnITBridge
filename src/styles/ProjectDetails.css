@@ -39,4 +39,17 @@
   .project-details-hero-content p {
     font-size: 0.95rem;
   }
+}
+
+@media (max-width: 480px) {
+  .project-details-hero {
+    min-height: 100px;
+    padding-left: 2vw;
+  }
+  .project-details-hero-content h1 {
+    font-size: 1.1rem;
+  }
+  .project-details-hero-content p {
+    font-size: 0.8rem;
+  }
 } 

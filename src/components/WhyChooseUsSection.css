@@ -203,17 +203,94 @@
 }
 
 @media (max-width: 600px) {
+  html, body {
+    overflow-x: hidden;
+  }
   .why-choose-us-section {
-    padding: 32px 0 16px 0;
+    display: block;
+    width: 100vw;
+    max-width: 100vw;
+    overflow-x: hidden;
+    padding: 16px 0 8px 0;
   }
-
+  .why-choose-us-content {
+    display: block;
+    width: 100vw;
+    max-width: 100vw;
+    padding: 0 2vw;
+    gap: 0;
+    overflow-x: hidden;
+  }
+  .why-choose-us-left, .why-choose-us-right {
+    width: 100%;
+    min-width: 0;
+    max-width: 100vw;
+  }
   .why-choose-us-heading {
-    font-size: 2rem;
+    font-size: 1.1rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
-
+  .why-choose-us-feature {
+    padding: 6px 2px 6px 18px;
+    min-height: 30px;
+  }
+  .why-choose-us-title, .why-choose-us-desc {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  .why-choose-us-title {
+    font-size: 0.9rem;
+  }
+  .why-choose-us-desc {
+    font-size: 0.8rem;
+  }
+  .why-choose-us-icon {
+    top: -4px;
+    left: -4px;
+    width: 16px;
+    height: 16px;
+    font-size: 10px;
+  }
+  .why-choose-us-image-wrapper {
+    width: 100%;
+    max-width: 90vw;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 8px;
+    margin-left: 0;
+  }
   .why-choose-us-projects-card {
     position: static;
-    margin: 18px auto 0 auto;
+    margin: 10px auto 0 auto;
     display: block;
+  }
+}
+
+@media (max-width: 400px) {
+  .why-choose-us-content {
+    gap: 8px;
+    padding: 0 2px;
+  }
+  .why-choose-us-heading {
+    font-size: 1.2rem;
+    word-break: break-word;
+  }
+  .why-choose-us-feature {
+    padding: 8px 4px 8px 28px;
+    min-height: 40px;
+  }
+  .why-choose-us-icon {
+    top: -4px;
+    left: -4px;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+  }
+  .why-choose-us-title {
+    font-size: 0.92rem;
+  }
+  .why-choose-us-desc {
+    font-size: 0.85rem;
   }
 }

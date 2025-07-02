@@ -6,6 +6,7 @@
   display: flex;
   align-items: center;
   padding-left: 8vw;
+  padding-top: 88px;
 }
 
 .hero-section-shared-content {
@@ -38,5 +39,24 @@
   }
   .hero-section-shared-content p {
     font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section-shared {
+    min-height: 120px;
+    padding-left: 2vw;
+  }
+  .hero-section-shared-content h1 {
+    font-size: 1.1rem;
+  }
+  .hero-section-shared-content p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .hero-section-shared {
+    padding-top: 70px;
   }
 } 
