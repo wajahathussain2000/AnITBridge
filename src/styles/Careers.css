@@ -45,20 +45,22 @@
 }
 
 .benefit-card {
-  background: #fff;
+  background: #f4faff !important;
+  color: #222 !important;
+  border-radius: 18px !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important;
+  border: 1.5px solid #e6f0fa !important;
   padding: 2rem;
-  border-radius: 10px;
   text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .benefit-card h3 {
-  color: #007bff;
+  color: #fff;
   margin-bottom: 1rem;
 }
 
 .benefit-card p {
-  color: #666;
+  color: #fff;
   line-height: 1.6;
 }
 
@@ -81,10 +83,12 @@
 }
 
 .job-card {
-  background: #fff;
-  border-radius: 10px;
+  background: #f4faff !important;
+  color: #222 !important;
+  border-radius: 18px !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important;
+  border: 1.5px solid #e6f0fa !important;
   padding: 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .job-header {
@@ -92,25 +96,25 @@
 }
 
 .job-header h3 {
-  color: #007bff;
+  color: #fff;
   margin-bottom: 0.5rem;
 }
 
 .job-meta {
   display: flex;
   gap: 1rem;
-  color: #666;
+  color: #fff;
 }
 
 .job-description {
-  color: #333;
+  color: #fff;
   margin-bottom: 1.5rem;
   line-height: 1.6;
 }
 
 .job-requirements h4 {
   margin-bottom: 1rem;
-  color: #333;
+  color: #fff;
 }
 
 .job-requirements ul {
@@ -121,7 +125,7 @@
 
 .job-requirements li {
   padding: 0.5rem 0;
-  color: #666;
+  color: #fff;
   position: relative;
   padding-left: 1.5rem;
 }
@@ -130,13 +134,13 @@
   content: '✓';
   position: absolute;
   left: 0;
-  color: #007bff;
+  color: #fff;
 }
 
 .apply-btn {
-  background: #007bff;
-  color: #fff;
-  border: none;
+  background: #0072ce !important;
+  color: #fff !important;
+  border: none !important;
   padding: 0.8rem 1.5rem;
   border-radius: 5px;
   cursor: pointer;
@@ -149,7 +153,7 @@
 }
 
 .careers-cta {
-  background: #007bff;
+  background: #0072ce;
   color: #fff;
   padding: 4rem 20px;
   text-align: center;
@@ -178,7 +182,7 @@
 
 .contact-btn:hover {
   background: #fff;
-  color: #007bff;
+  color: #0072ce;
 }
 
 @media screen and (max-width: 768px) {

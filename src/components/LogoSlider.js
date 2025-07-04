@@ -3,21 +3,15 @@ import '../styles/Home.css';
 
 // Expanded set of actual company logos
 const logos = [
-  'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg',
-  'https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg',
+'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg',
   'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg',
-  'https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg',
   'https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg',
-  'https://upload.wikimedia.org/wikipedia/commons/6/6e/Spotify_logo_with_text.svg',
   'https://upload.wikimedia.org/wikipedia/commons/0/02/Stack_Overflow_logo.svg',
-  'https://upload.wikimedia.org/wikipedia/commons/0/08/Apple_logo_black.svg',
   'https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg',
   'https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg',
-  'https://upload.wikimedia.org/wikipedia/commons/4/4f/Twitter-logo.svg',
-  'https://upload.wikimedia.org/wikipedia/commons/0/09/Amazon_logo.svg',
-  'https://upload.wikimedia.org/wikipedia/commons/2/2a/LinkedIn_logo_initials.png',
-  'https://upload.wikimedia.org/wikipedia/commons/7/7e/Dell_Logo.png',
   'https://upload.wikimedia.org/wikipedia/commons/2/24/Adidas_logo.png',
+  'https://upload.wikimedia.org/wikipedia/commons/7/76/Slack_Icon.png',
+  'https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg',
 ];
 
 const LogoSlider = () => {

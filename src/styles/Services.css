@@ -129,6 +129,11 @@
   line-height: 1.6;
 }
 
+.consulting-card, .consulting-card-badge, .consulting-card-title-main, .consulting-card-title-sub {
+  background: #0072ce !important;
+  color: #fff !important;
+}
+
 @media screen and (max-width: 768px) {
   .services-hero h1 {
     font-size: 2.5rem;

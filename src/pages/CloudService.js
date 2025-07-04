@@ -1,47 +1,151 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Box, Typography, Container, Grid, Card, CardContent, List, ListItem, ListItemIcon, ListItemText, Button, Switch, FormControlLabel } from '@mui/material';
+import CloudQueueIcon from '@mui/icons-material/CloudQueue';
+import SecurityIcon from '@mui/icons-material/Security';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import SwapHorizIcon from '@mui/icons-material/SwapHoriz';
 import Navbar from '../components/Navbar';
-import HeroSection from '../components/HeroSection';
-import ServiceSidebar from '../components/ServiceSidebar';
-import ContactSection from '../components/ContactSection';
-import './UiUxService.css';
+import Lottie from 'lottie-react';
+import cloudArchitectureLottie from '../assets/cloud-architecture-lottie.json';
 
-const CloudService = () => (
-  <div className="cloud-service">
-    <Navbar />
-    <HeroSection
-      title="Cloud & Solutions Architecture"
-      slogan="Empowering Growth with Scalable Cloud Solutions"
-    />
-    <div className="service-detail-layout">
-      <ServiceSidebar active="cloud" />
-      <main className="service-detail-main">
-        <div className="service-badge">SCALABLE CLOUD SOLUTIONS</div>
-        <h2>Designing Secure and Scalable Cloud Architectures</h2>
-        <p>
-          Our cloud architecture services help you leverage the power of the cloud to drive business growth and innovation. We design, implement, and manage cloud solutions tailored to your needs.
-        </p>
-        <p>
-          From migration to optimization, we ensure your cloud infrastructure is secure, cost-effective, and future-ready.
-        </p>
-        <div className="service-why-choose">
-          <div className="why-choose-content">
-            <div className="why-badge">WHY CHOOSE US</div>
-            <h3>Unlock the Power of the Cloud</h3>
-            <ul className="why-list">
-              <li><span className="why-icon">✔</span> <b>Cloud Strategy</b><br /><span className="why-desc">We develop a cloud roadmap aligned with your business goals.</span></li>
-              <li><span className="why-icon">✔</span> <b>Security & Compliance</b><br /><span className="why-desc">We implement best practices to protect your data and ensure compliance.</span></li>
-              <li><span className="why-icon">✔</span> <b>Cost Optimization</b><br /><span className="why-desc">We help you maximize ROI by optimizing cloud resources and spend.</span></li>
-              <li><span className="why-icon">✔</span> <b>Seamless Migration</b><br /><span className="why-desc">We ensure a smooth transition to the cloud with minimal disruption.</span></li>
-            </ul>
-          </div>
-          <div className="why-choose-image">
-            <img src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&w=400&q=80" alt="Cloud Solutions" />
-          </div>
-        </div>
-      </main>
-    </div>
-    <ContactSection />
-  </div>
+const cloudBenefits = [
+  {
+    icon: <CloudQueueIcon color="primary" fontSize="large" />, 
+    title: 'Strategic Cloud Roadmaps',
+    desc: 'Tailored cloud strategies that align with your business vision and accelerate digital transformation.'
+  },
+  {
+    icon: <SecurityIcon color="primary" fontSize="large" />,
+    title: 'Enterprise-Grade Security',
+    desc: 'Robust security frameworks and compliance to safeguard your data and ensure peace of mind.'
+  },
+  {
+    icon: <TrendingUpIcon color="primary" fontSize="large" />,
+    title: 'Cost & Performance Optimization',
+    desc: 'Maximize ROI with intelligent resource allocation and continuous performance tuning.'
+  },
+  {
+    icon: <SwapHorizIcon color="primary" fontSize="large" />,
+    title: 'Seamless Cloud Migration',
+    desc: 'Effortless migration with minimal disruption, ensuring business continuity and agility.'
+  },
+];
+
+const cloudImage = 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&w=600&q=80';
+
+// --- Gradient Styles ---
+// Static gradient style
+const staticGradient = {
+  background: 'linear-gradient(90deg, #232526 0%, #414345 50%, #485563 100%)',
+  color: '#fff',
+};
+// Animated gradient style
+const animatedGradient = {
+  background: 'linear-gradient(270deg, #232526, #414345, #485563, #232526)',
+  backgroundSize: '600% 600%',
+  animation: 'gradientMove 12s ease infinite',
+  color: '#fff',
+};
+
+// --- Add animated gradient keyframes ---
+// This <style> tag is for preview/demo. Move to CSS file for production.
+const GradientKeyframes = () => (
+  <style>{`
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  `}</style>
 );
+
+const CloudService = () => {
+  const [animated, setAnimated] = useState(true);
+
+  return (
+    <Box sx={{ background: '#f8fafc', minHeight: '100vh' }}>
+      <GradientKeyframes />
+    <Navbar />
+      {/* Hero Section */}
+      <Box
+        sx={{
+          minHeight: '45vh',
+          display: 'flex',
+          alignItems: 'center',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          background: 'linear-gradient(90deg, #e6f7fe 0%, #b2fefa 100%)',
+          color: '#0a2239',
+          py: { xs: 8, md: 12 },
+          pt: { xs: 16, md: 20 },
+        }}
+      >
+        <Container maxWidth="lg">
+          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'flex-start', justifyContent: 'space-between', width: '100%' }}>
+            {/* Left: Content */}
+            <Box sx={{ flex: 1, pr: { md: 6 }, mb: { xs: 4, md: 0 }, position: 'relative' }}>
+              <Typography variant="h2" fontWeight={800} gutterBottom>
+                Cloud & Solutions Architecture
+              </Typography>
+              <Typography variant="h5" color="#222" mb={3}>
+                Elevate your business with scalable, secure, and future-ready cloud solutions designed for innovation and growth.
+              </Typography>
+              <Button variant="contained" size="large" sx={{ background: '#fff', color: '#0072ce', borderRadius: 3, fontWeight: 700, mt: 2, '&:hover': { background: '#e3f2fd' } }} href="#cloud-benefits">
+                Discover Our Approach
+              </Button>
+            </Box>
+            {/* Right: Lottie Animation */}
+            <Box sx={{ flex: 1, display: 'flex', justifyContent: { xs: 'flex-start', md: 'center' }, alignItems: 'center', width: '100%', mt: { xs: 0, md: 6 } }}>
+              <Box sx={{ width: '100%', maxWidth: 340 }}>
+                <Lottie animationData={cloudArchitectureLottie} loop={true} style={{ width: '100%', height: 'auto' }} />
+              </Box>
+            </Box>
+          </Box>
+        </Container>
+      </Box>
+      {/* Main Content */}
+      <Container maxWidth="lg" sx={{ py: 8 }}>
+        <Grid container justifyContent="center" sx={{ mt: { xs: 2, md: 6 }, mb: 8 }}>
+          <Grid item xs={12}>
+            <Card id="cloud-benefits" elevation={3} sx={{ p: { xs: 2, md: 6 }, borderRadius: 4, background: 'rgba(255,255,255,0.95)', maxWidth: '1200px', margin: '0 auto' }}>
+              <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center', justifyContent: 'space-between' }}>
+                <Box sx={{ flex: 1, pr: { md: 6 }, width: { xs: '100%', md: '60%' } }}>
+                  <Typography variant="h4" fontWeight={700} gutterBottom color="primary.main">
+                    Why Choose Our Cloud Solutions?
+                  </Typography>
+                  <Typography variant="body1" color="text.secondary" mb={3}>
+                    Unlock the full potential of your business with scalable, secure, and future-ready cloud architecture. Our solutions are designed to accelerate innovation, reduce costs, and ensure seamless digital transformation.
+                  </Typography>
+                  <List>
+                    {cloudBenefits.map((benefit, idx) => (
+                      <ListItem key={idx} alignItems="flex-start" sx={{ pl: 0 }}>
+                        <ListItemIcon sx={{ minWidth: 40 }}>{benefit.icon}</ListItemIcon>
+                        <ListItemText
+                          primary={<Typography variant="subtitle1" fontWeight={600}>{benefit.title}</Typography>}
+                          secondary={<Typography variant="body2" color="text.secondary">{benefit.desc}</Typography>}
+                        />
+                      </ListItem>
+                    ))}
+                  </List>
+                  <Button variant="contained" size="large" sx={{ mt: 3, borderRadius: 3 }} color="primary" href="/contact">
+                    Get Started
+                  </Button>
+                </Box>
+                <Box sx={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', width: { xs: '100%', md: '40%' }, mt: { xs: 4, md: 0 } }}>
+                  <Box
+                    component="img"
+                    src="/images/technology-integrated-everyday-life.jpg"
+                    alt="Cloud computing technology illustration"
+                    sx={{ width: '100%', maxWidth: 340, minWidth: 220, height: '80%', minHeight: 180, borderRadius: 3, boxShadow: 2, objectFit: 'cover', my: { xs: 2, md: 4 } }}
+                  />
+                </Box>
+              </Box>
+            </Card>
+          </Grid>
+        </Grid>
+      </Container>
+    </Box>
+);
+};
 
 export default CloudService; 

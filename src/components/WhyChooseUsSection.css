@@ -137,18 +137,12 @@
 }
 
 /* Projects card */
-.why-choose-us-projects-card {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  background: #0b5c6b;
-  color: #fff;
-  border-radius: 16px;
-  padding: 30px 22px 24px 22px;
-  min-width: 180px;
-  text-align: center;
-  z-index: 2;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+.why-choose-us-projects-card, .square-card {
+  background: #f4faff !important;
+  color: #222 !important;
+  border-radius: 18px !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important;
+  border: 1.5px solid #e6f0fa !important;
 }
 
 .projects-number {

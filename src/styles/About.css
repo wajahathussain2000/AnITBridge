@@ -2,29 +2,6 @@
   width: 100%;
 }
 
-.about-hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
-  background-size: cover;
-  background-position: center;
-  height: 40vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #fff;
-  padding-top: 88px;
-}
-
-.about-hero h1 {
-  font-size: 3.5rem;
-  margin-bottom: 1rem;
-}
-
-.about-hero p {
-  font-size: 1.5rem;
-}
-
 .about-content {
   max-width: 1200px;
   margin: 0 auto;
@@ -58,9 +35,12 @@
 }
 
 .value-card {
-  background: #f9f9f9;
+  background: #f4faff !important;
+  color: #222 !important;
+  border-radius: 18px !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important;
+  border: 1.5px solid #e6f0fa !important;
   padding: 2rem;
-  border-radius: 10px;
   text-align: center;
   transition: transform 0.3s ease;
 }
@@ -115,14 +95,6 @@
 }
 
 @media screen and (max-width: 768px) {
-  .about-hero h1 {
-    font-size: 2.5rem;
-  }
-
-  .about-hero p {
-    font-size: 1.2rem;
-  }
-
   .about-section h2 {
     font-size: 2rem;
   }
@@ -133,12 +105,6 @@
 }
 
 @media screen and (max-width: 600px) {
-  .about-hero h1 {
-    font-size: 1.2rem;
-  }
-  .about-hero p {
-    font-size: 0.9rem;
-  }
   .about-section h2 {
     font-size: 1.2rem;
   }

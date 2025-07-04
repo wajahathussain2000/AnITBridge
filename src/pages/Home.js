@@ -6,6 +6,9 @@ import WhyChooseUsSection from '../components/WhyChooseUsSection';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import AnimatedNumber from '../components/AnimatedNumber';
+import HeroSection from '../components/HeroSection';
+import TestimonialsSection from '../components/TestimonialsSection';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const HeroImage =
   'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&w=800&q=80';
@@ -71,67 +74,52 @@ const Home = () => {
     return () => observer.disconnect();
   }, []);
 
+  // For IEE animated words
+  const ieeWords = ['Innovate', 'Execute', 'Excel'];
+  const [ieeIndex, setIeeIndex] = React.useState(0);
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setIeeIndex((prev) => (prev + 1) % ieeWords.length);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, [ieeIndex]);
+
   return (
     <div className="home">
       <Navbar />
-      {/* Hero Section */}
-      <section className="hero-section">
-        {/* Decorative Circles */}
-        <svg className="hero-bg-circle hero-bg-circle-topleft" viewBox="0 0 600 600">
-          <circle cx="300" cy="300" r="300" fill="#e3f1f7" />
-        </svg>
-        <svg className="hero-bg-circle hero-bg-circle-bottomright" viewBox="0 0 400 400">
-          <circle cx="200" cy="200" r="200" fill="#e3f1f7" />
-        </svg>
-        <div className="hero-content-wrapper">
-          <div className="hero-left">
-            <h1 className="hero-title">Transform Your Business<br />And Unlock Your Potential</h1>
-            <p className="hero-subtitle">
-              Driving Growth Through Innovative Strategies &amp; Operational Excellence
+      <HeroSection flying={true} />
+      {/* Brand Pods Section - Improved Match */}
+      <section className="brand-pods-section">
+        <div className="brand-pods-content">
+          <div className="brand-pods-left">
+            <h2 className="brand-pods-title">Bridge the Future of IT<br />with AnITBridge Pods</h2>
+            <p className="brand-pods-desc">
+              The first-ever subscription model to access<br />
+              engineering, innovation, and creativity.<br />
+              <span className="brand-pods-desc-bold">Expert IT orchestrated by AnITBridge,</span><br />
+              spinning up in seconds, getting projects done in half the time,<br />
+              and making IT savings tangible.
             </p>
-            <div className="hero-btns">
-              <button className="hero-btn hero-btn-outline">BOOK A CONSULTATION</button>
-              <button className="hero-btn hero-btn-filled">EXPLORE OUR SOLUTIONS</button>
-            </div>
+            <button className="brand-pods-btn">Subscribe to the Future</button>
           </div>
-          <div className="hero-right">
-            <div className="hero-image-card-wrapper">
-              <div className="hero-image-card-outline"></div>
-              <div className="hero-image-card">
-                {/* Decorative Dots */}
-                <div className="hero-dots">
-                  {[...Array(6)].map((_, i) => (
-                    <span key={i} className="hero-dot" />
-                  ))}
-                </div>
-                <img src={HeroImage} alt="Teamwork" className="hero-image" />
+          <div className="brand-pods-right">
+            <div className="brand-pods-image-bg"></div>
+            <div className="brand-pods-image-wrapper">
+              <div className="brand-pods-image-glow"></div>
+              <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="Tech Team" className="brand-pods-image" />
+              <div className="brand-pods-card brand-pods-card-top">
+                <div className="brand-pods-card-title">Transaction Monitor</div>
+                <div className="brand-pods-card-desc">Fraud Detection</div>
+                <span className="brand-pods-card-badge">Published</span>
               </div>
+              <div className="brand-pods-card brand-pods-card-bottom">
+                <div className="brand-pods-card-title">Strategy</div>
+                <div className="brand-pods-card-desc">Trading Strategy</div>
+                <span className="brand-pods-card-badge">Published</span>
+              </div>
+              <button className="brand-pods-card-newagent">+ New Agent</button>
             </div>
-          </div>
-        </div>
-      </section>
-      {/* Solutions/Features Section */}
-      <section className="solutions-section">
-        <div className="solutions-content-wrapper">
-          <div className="solutions-images">
-            <div className="solutions-image-top">
-              <img src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&w=400&q=80" alt="Consulting" />
-            </div>
-            <div className="solutions-image-bottom">
-              <img src="https://images.pexels.com/photos/1181696/pexels-photo-1181696.jpeg?auto=compress&w=400&q=80" alt="Teamwork" />
-            </div>
-          </div>
-          <div className="solutions-text">
-            <span className="solutions-badge">About Us</span>
-            <h2 className="solutions-title">Driving Innovation And Delivering Tailored Solutions</h2>
-            <p className="solutions-desc">
-              AnITBridge is more than simply a consulting firm; we are a strategic partner committed to achieving business success with innovative, bespoke solutions. Our comprehensive process assures a smooth and efficient experience that relates to your long-term objectives.
-            </p>
-            <ul className="solutions-list">
-              <li><span className="solutions-check">✔</span> Innovative, Tailored Solutions crafted to meet your unique needs.</li>
-              <li><span className="solutions-check">✔</span> Sustainable Growth, Efficiency and Building a stronger future for your organization.</li>
-              <li><span className="solutions-check">✔</span> Expert Insights, Real-World Strategies and Guidance you can implement immediately.</li>
-            </ul>
           </div>
         </div>
       </section>
@@ -141,100 +129,77 @@ const Home = () => {
       <ConsultingServicesSection />
       {/* Innovate Execute Excel Section */}
       <section className="iee-section">
-        <span className="iee-text">
-          <strong>Innovate</strong>
-          <span className="iee-dot"> . </span>
-          <strong>Execute</strong>
-          <span className="iee-dot"> . </span>
-          <strong>Excel</strong>
+        <span className="iee-text" style={{ minHeight: '3.2rem', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+          <AnimatePresence mode="wait">
+            <motion.span
+              key={ieeWords[ieeIndex]}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -40 }}
+              transition={{ duration: 0.6 }}
+              style={{ display: 'inline-block', minWidth: 120, textAlign: 'center' }}
+            >
+              <strong>{ieeWords[ieeIndex]}</strong>
+            </motion.span>
+          </AnimatePresence>
         </span>
       </section>
       <WhyChooseUsSection />
-      {/* Our Impact in Numbers Section */}
-      <section className="impact-numbers-section" ref={impactRef}>
-        <div className="impact-numbers-badge">Driving Success, Together.</div>
-        <h2 className="impact-numbers-heading">Our Impact in Numbers</h2>
-        <div className="impact-numbers-map-wrapper">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/World_map_-_low_resolution.svg/2000px-World_map_-_low_resolution.svg.png"
-            alt="World Map"
-            className="impact-numbers-map"
-          />
-        </div>
-        <div className="impact-numbers-stats-card">
-          <div className="impact-numbers-stat">
-            <div className="impact-numbers-stat-title">Value Generated For Clients</div>
-            <div className="impact-numbers-stat-value">{impactVisible && <AnimatedNumber value={3000000} prefix="$ " />}</div>
-          </div>
-          <div className="impact-numbers-stat">
-            <div className="impact-numbers-stat-title">Hours Of Consultation</div>
-            <div className="impact-numbers-stat-value">{impactVisible && <AnimatedNumber value={5000} suffix=" +" />}</div>
-          </div>
-          <div className="impact-numbers-stat">
-            <div className="impact-numbers-stat-title">Active Client Partnerships</div>
-            <div className="impact-numbers-stat-value">{impactVisible && <AnimatedNumber value={10} suffix=" +" />}</div>
-          </div>
-          <div className="impact-numbers-stat">
-            <div className="impact-numbers-stat-title">Years In Business</div>
-            <div className="impact-numbers-stat-value">{impactVisible && <AnimatedNumber value={7} suffix=" +" />}</div>
-          </div>
-        </div>
-      </section>
       {/* Pricing Plans Section */}
-      <section className="pricing-section">
-        <div className="pricing-badge">Our Pricing</div>
-        <h2 className="pricing-heading">Choose the Perfect Plan for Your Needs</h2>
-        <div className="pricing-cards-wrapper">
-          {/* Basic Plan */}
-          <div className="pricing-card">
-            <div className="pricing-card-row">
-              <span className="pricing-label basic">Basic</span>
-              <span className="pricing-price">CAD $0 <span className="pricing-duration">/15 mins</span></span>
+      <section className="glass-pricing-section">
+        <div className="glass-pricing-badge">Our Pricing</div>
+        <h2 className="glass-pricing-heading">Choose the Perfect Plan for Your Needs</h2>
+        <div className="glass-pricing-cards-wrapper">
+          {/* Starter Plan */}
+          <div className="glass-pricing-card">
+            <div className="glass-pricing-card-row">
+              <span className="glass-pricing-label starter">Starter</span>
+              <span className="glass-pricing-price">$0 <span className="glass-pricing-duration">/15 mins</span></span>
             </div>
-            <div className="pricing-title">Initial Consultation</div>
-            <div className="pricing-desc">
-              Kickstart your journey with our 15-minute free Initial Consultation. We'll explore your business needs and identify key areas for improvement to set you on the path to success.
+            <div className="glass-pricing-title">Discovery Call</div>
+            <div className="glass-pricing-desc">
+              Jumpstart your project with a free 15-minute discovery call. We'll assess your needs and outline next steps.
             </div>
-            <ul className="pricing-list">
-              <li>Explore your business needs</li>
-              <li>Identify key improvement areas</li>
-              <li>Set the path to success</li>
+            <ul className="glass-pricing-list">
+              <li>Quick assessment</li>
+              <li>Actionable advice</li>
+              <li>No obligation</li>
             </ul>
-            <button className="pricing-btn">Book now</button>
+            <button className="glass-pricing-btn">Book now</button>
           </div>
-          {/* Most Popular Plan */}
-          <div className="pricing-card popular">
-            <div className="pricing-card-row">
-              <span className="pricing-label popular">Most Popular</span>
-              <span className="pricing-price">CAD $100 <span className="pricing-duration">/30 mins</span></span>
+          {/* Growth Plan (Most Popular) */}
+          <div className="glass-pricing-card popular">
+            <div className="glass-pricing-card-row">
+              <span className="glass-pricing-label popular">Most Popular</span>
+              <span className="glass-pricing-price">$120 <span className="glass-pricing-duration">/30 mins</span></span>
             </div>
-            <div className="pricing-title">Target State Planning</div>
-            <div className="pricing-desc">
-              Plan for the future with a focused 30-minute session on Target State Planning consultation. We'll help you define your ideal business state and create a roadmap to achieve it.
+            <div className="glass-pricing-title">Strategy Session</div>
+            <div className="glass-pricing-desc">
+              A focused 30-minute session to define your goals and create a strategic roadmap for success.
             </div>
-            <ul className="pricing-list">
-              <li>Define your ideal business state</li>
-              <li>Create a strategic roadmap</li>
-              <li>Prioritize initiatives</li>
+            <ul className="glass-pricing-list">
+              <li>Goal setting</li>
+              <li>Roadmap creation</li>
+              <li>Expert guidance</li>
             </ul>
-            <button className="pricing-btn">Book now</button>
+            <button className="glass-pricing-btn">Book now</button>
           </div>
-          {/* Recommended Plan */}
-          <div className="pricing-card recommended">
-            <div className="pricing-card-row">
-              <span className="pricing-label recommended">Recommended</span>
-              <span className="pricing-price">CAD $150 <span className="pricing-duration">/60 mins</span></span>
+          {/* Premium Plan */}
+          <div className="glass-pricing-card premium">
+            <div className="glass-pricing-card-row">
+              <span className="glass-pricing-label premium">Premium</span>
+              <span className="glass-pricing-price">$220 <span className="glass-pricing-duration">/60 mins</span></span>
             </div>
-            <div className="pricing-title">Architecture & Roadmap</div>
-            <div className="pricing-desc">
-              Get strategic with our 1-hour architecture planning & implementation. We'll design tailored solutions to optimize your business operations and map out your path to peak performance.
+            <div className="glass-pricing-title">Full Solution Workshop</div>
+            <div className="glass-pricing-desc">
+              A comprehensive 1-hour workshop to design, plan, and kickstart your custom solution.
             </div>
-            <ul className="pricing-list">
-              <li>Comprehensive Target State Planning</li>
-              <li>Tailored Solution Design</li>
-              <li>Technical Implementation</li>
+            <ul className="glass-pricing-list">
+              <li>Deep dive</li>
+              <li>Custom solutions</li>
+              <li>Implementation plan</li>
             </ul>
-            <button className="pricing-btn">Book now</button>
+            <button className="glass-pricing-btn">Book now</button>
           </div>
         </div>
       </section>
@@ -249,43 +214,32 @@ const Home = () => {
         </div>
       </section>
       {/* Testimonials Section */}
-      <section className="testimonials-section">
-        <div className="testimonials-content-wrapper">
-          <div className="testimonials-left">
-            <div className="testimonials-badge">TESTIMONIALS</div>
-            <h2 className="testimonials-heading">Trusted Voices, Proven Results</h2>
-            <div className="testimonials-subheading">
-              Hear directly from our valued clients about their experiences with our consulting services.
-            </div>
+      <TestimonialsSection />
+      {/* Video Showcase Section */}
+      <section className="video-showcase-section">
+        <h2 className="video-showcase-title">See Us in Action</h2>
+        <div className="video-showcase-cards">
+          <div className="video-card">
+            <iframe
+              width="100%"
+              height="315"
+              src="https://www.youtube.com/embed/SlRn7xbQ_E4"
+              title="YouTube video 1"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
           </div>
-          <div className="testimonials-right">
-            <div className="testimonials-slider-wrapper">
-              <div className="testimonials-slider" style={isMobile ? {display: 'block', width: '100%'} : {}}>
-                {isMobile ? (
-                  <div className="testimonial-card" style={{margin: '0 auto'}}>
-                    <div className="testimonial-quote-mark">“</div>
-                    <div className="testimonial-stars">★★★★★</div>
-                    <div className="testimonial-text">{testimonials[currentTestimonial].text}</div>
-                    <div className="testimonial-client">{testimonials[currentTestimonial].client}</div>
-                    <div className="testimonial-quote-mark end">”</div>
-                  </div>
-                ) : (
-                  [0, 2].map((start, i) => (
-                    <div className="testimonials-slide" key={i}>
-                      {testimonials.slice(start, start + 2).map((t, idx) => (
-                        <div className="testimonial-card" key={idx}>
-                          <div className="testimonial-quote-mark">“</div>
-                          <div className="testimonial-stars">★★★★★</div>
-                          <div className="testimonial-text">{t.text}</div>
-                          <div className="testimonial-client">{t.client}</div>
-                          <div className="testimonial-quote-mark end">”</div>
-                        </div>
-                      ))}
-                    </div>
-                  ))
-                )}
-              </div>
-            </div>
+          <div className="video-card">
+            <iframe
+              width="100%"
+              height="315"
+              src="https://www.youtube.com/embed/KcYkMECRWI4"
+              title="YouTube video 2"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
           </div>
         </div>
       </section>

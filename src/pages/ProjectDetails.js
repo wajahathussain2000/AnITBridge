@@ -14,7 +14,7 @@ const ProjectDetails = () => {
     return (
       <div className="project-details">
         <Navbar />
-        <HeroSection title="Project Details" />
+        <HeroSection contactStyle={true} title="Project Details" subtitle="" />
         <ProjectInfoSection />
       </div>
     );
@@ -23,7 +23,7 @@ const ProjectDetails = () => {
   return (
     <div className="project-details">
       <Navbar />
-      <HeroSection title="Project Details" />
+      <HeroSection contactStyle={true} title={project.title} subtitle={project.info} />
       <ProjectInfoSection
         projectName={project.title}
         year="2024"
