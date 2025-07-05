@@ -90,7 +90,7 @@ const Home = () => {
       <Navbar />
       <HeroSection flying={true} />
       {/* Brand Pods Section - Improved Match */}
-      <section className="brand-pods-section">
+      <section id="brand-pods" className="brand-pods-section">
         <div className="brand-pods-content">
           <div className="brand-pods-left">
             <h2 className="brand-pods-title">Bridge the Future of IT<br />with AnITBridge Pods</h2>
@@ -101,7 +101,6 @@ const Home = () => {
               spinning up in seconds, getting projects done in half the time,<br />
               and making IT savings tangible.
             </p>
-            <button className="brand-pods-btn">Subscribe to the Future</button>
           </div>
           <div className="brand-pods-right">
             <div className="brand-pods-image-bg"></div>
@@ -165,7 +164,34 @@ const Home = () => {
               <li>Actionable advice</li>
               <li>No obligation</li>
             </ul>
-            <button className="glass-pricing-btn">Book now</button>
+            <button 
+              style={{
+                background: 'linear-gradient(135deg, #0072ce 0%, #0056b3 100%)',
+                color: 'white',
+                padding: '0.75rem 1.5rem',
+                borderRadius: '8px',
+                fontWeight: 600,
+                fontSize: '0.9rem',
+                textTransform: 'none',
+                border: 'none',
+                boxShadow: '0 4px 15px rgba(0, 114, 206, 0.3)',
+                transition: 'all 0.3s ease',
+                cursor: 'pointer',
+                fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.transform = 'translateY(-2px)';
+                e.target.style.boxShadow = '0 8px 25px rgba(0, 114, 206, 0.4)';
+                e.target.style.background = 'linear-gradient(135deg, #0056b3 0%, #004494 100%)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.boxShadow = '0 4px 15px rgba(0, 114, 206, 0.3)';
+                e.target.style.background = 'linear-gradient(135deg, #0072ce 0%, #0056b3 100%)';
+              }}
+            >
+              Book now
+            </button>
           </div>
           {/* Growth Plan (Most Popular) */}
           <div className="glass-pricing-card popular">
@@ -182,7 +208,34 @@ const Home = () => {
               <li>Roadmap creation</li>
               <li>Expert guidance</li>
             </ul>
-            <button className="glass-pricing-btn">Book now</button>
+            <button 
+              style={{
+                background: 'linear-gradient(135deg, #0072ce 0%, #0056b3 100%)',
+                color: 'white',
+                padding: '0.75rem 1.5rem',
+                borderRadius: '8px',
+                fontWeight: 600,
+                fontSize: '0.9rem',
+                textTransform: 'none',
+                border: 'none',
+                boxShadow: '0 4px 15px rgba(0, 114, 206, 0.3)',
+                transition: 'all 0.3s ease',
+                cursor: 'pointer',
+                fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.transform = 'translateY(-2px)';
+                e.target.style.boxShadow = '0 8px 25px rgba(0, 114, 206, 0.4)';
+                e.target.style.background = 'linear-gradient(135deg, #0056b3 0%, #004494 100%)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.boxShadow = '0 4px 15px rgba(0, 114, 206, 0.3)';
+                e.target.style.background = 'linear-gradient(135deg, #0072ce 0%, #0056b3 100%)';
+              }}
+            >
+              Book now
+            </button>
           </div>
           {/* Premium Plan */}
           <div className="glass-pricing-card premium">
@@ -199,7 +252,34 @@ const Home = () => {
               <li>Custom solutions</li>
               <li>Implementation plan</li>
             </ul>
-            <button className="glass-pricing-btn">Book now</button>
+            <button 
+              style={{
+                background: 'linear-gradient(135deg, #0072ce 0%, #0056b3 100%)',
+                color: 'white',
+                padding: '0.75rem 1.5rem',
+                borderRadius: '8px',
+                fontWeight: 600,
+                fontSize: '0.9rem',
+                textTransform: 'none',
+                border: 'none',
+                boxShadow: '0 4px 15px rgba(0, 114, 206, 0.3)',
+                transition: 'all 0.3s ease',
+                cursor: 'pointer',
+                fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.transform = 'translateY(-2px)';
+                e.target.style.boxShadow = '0 8px 25px rgba(0, 114, 206, 0.4)';
+                e.target.style.background = 'linear-gradient(135deg, #0056b3 0%, #004494 100%)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.boxShadow = '0 4px 15px rgba(0, 114, 206, 0.3)';
+                e.target.style.background = 'linear-gradient(135deg, #0072ce 0%, #0056b3 100%)';
+              }}
+            >
+              Book now
+            </button>
           </div>
         </div>
       </section>
@@ -210,7 +290,35 @@ const Home = () => {
             Your Vision. Our Strategy.<br />
             Unlocking Tomorrow's Success, Today
           </h2>
-          <button className="cta-buildings-btn" onClick={() => navigate('/contact')}>GET A QUOTE</button>
+          <button 
+            style={{
+              background: 'linear-gradient(135deg, #0072ce 0%, #0056b3 100%)',
+              color: 'white',
+              padding: '1.25rem 2.5rem',
+              borderRadius: '16px',
+              fontWeight: 600,
+              fontSize: '1.1rem',
+              textTransform: 'none',
+              border: 'none',
+              boxShadow: '0 8px 25px rgba(0, 114, 206, 0.3)',
+              transition: 'all 0.3s ease',
+              cursor: 'pointer',
+              fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif'
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.transform = 'translateY(-2px)';
+              e.target.style.boxShadow = '0 12px 35px rgba(0, 114, 206, 0.4)';
+              e.target.style.background = 'linear-gradient(135deg, #0056b3 0%, #004494 100%)';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = 'translateY(0)';
+              e.target.style.boxShadow = '0 8px 25px rgba(0, 114, 206, 0.3)';
+              e.target.style.background = 'linear-gradient(135deg, #0072ce 0%, #0056b3 100%)';
+            }}
+            onClick={() => navigate('/contact')}
+          >
+            GET A QUOTE
+          </button>
         </div>
       </section>
       {/* Testimonials Section */}

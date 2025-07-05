@@ -1,144 +1,374 @@
-import React, { useState } from 'react';
-import { Box, Typography, Container, Grid, Card, List, ListItem, ListItemIcon, ListItemText, Button, Switch, FormControlLabel } from '@mui/material';
-import DevicesIcon from '@mui/icons-material/Devices';
+import React, { useState, useEffect } from 'react';
+import { Box, Typography, Container, Grid, Card, Button, Chip, Divider } from '@mui/material';
+import { motion } from 'framer-motion';
+import CodeIcon from '@mui/icons-material/Code';
+import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
+import WebIcon from '@mui/icons-material/Web';
+import StorageIcon from '@mui/icons-material/Storage';
 import SecurityIcon from '@mui/icons-material/Security';
 import SpeedIcon from '@mui/icons-material/Speed';
-import SupportAgentIcon from '@mui/icons-material/SupportAgent';
+import MobileFriendlyIcon from '@mui/icons-material/MobileFriendly';
 import Navbar from '../components/Navbar';
-import Lottie from 'lottie-react';
-import webdevAnimation from '../assets/webdev.json';
-import './UiUxService.css';
+import './WebAppService.css';
 
-const staticGradient = {
-  background: 'linear-gradient(90deg, #232526 0%, #414345 50%, #485563 100%)',
-  color: '#fff',
-};
-const animatedGradient = {
-  background: 'linear-gradient(270deg, #232526, #414345, #485563, #232526)',
-  backgroundSize: '600% 600%',
-  animation: 'gradientMove 12s ease infinite',
-  color: '#fff',
-};
-const GradientKeyframes = () => (
-  <style>{`
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-  `}</style>
-);
+const webAppSolutions = [
+  {
+    icon: <WebIcon sx={{ fontSize: 32, color: '#0072ce' }} />,
+    title: 'Web Development',
+    description: 'Modern, responsive web applications built with cutting-edge technologies',
+    features: ['React/Next.js', 'Progressive Web Apps', 'SEO Optimization', 'Performance Tuning']
+  },
+  {
+    icon: <MobileFriendlyIcon sx={{ fontSize: 32, color: '#0072ce' }} />,
+    title: 'Mobile Applications',
+    description: 'Cross-platform mobile apps that deliver exceptional user experiences',
+    features: ['React Native', 'Flutter Development', 'Native iOS/Android', 'App Store Optimization']
+  },
+  {
+    icon: <CodeIcon sx={{ fontSize: 32, color: '#0072ce' }} />,
+    title: 'Custom Software',
+    description: 'Tailored software solutions designed to meet your specific business needs',
+    features: ['Enterprise Applications', 'API Development', 'Database Design', 'System Integration']
+  },
+  {
+    icon: <SecurityIcon sx={{ fontSize: 32, color: '#0072ce' }} />,
+    title: 'Security & Testing',
+    description: 'Comprehensive security measures and thorough testing protocols',
+    features: ['Security Audits', 'Penetration Testing', 'Automated Testing', 'Code Quality']
+  }
+];
 
-const webAppBenefits = [
-  {
-    icon: <DevicesIcon color="primary" fontSize="large" />, 
-    title: 'Cross-Platform Excellence',
-    desc: 'Seamless experiences across web, iOS, and Android with a single codebase.'
-  },
-  {
-    icon: <SecurityIcon color="primary" fontSize="large" />, 
-    title: 'Secure by Design',
-    desc: 'Built-in security best practices to protect your users and data.'
-  },
-  {
-    icon: <SpeedIcon color="primary" fontSize="large" />, 
-    title: 'Performance Focused',
-    desc: 'Optimized for speed, scalability, and reliability from day one.'
-  },
-  {
-    icon: <SupportAgentIcon color="primary" fontSize="large" />, 
-    title: 'Ongoing Support',
-    desc: 'Continuous updates and expert support to keep your apps running smoothly.'
-  },
+const stats = [
+  { value: '100%', label: 'Responsive Design' },
+  { value: '60%', label: 'Faster Development' },
+  { value: '24/7', label: 'Support' },
+  { value: '99.9%', label: 'Uptime' }
 ];
 
 const WebAppService = () => {
-  const [animated, setAnimated] = useState(true);
+  const [activeTab, setActiveTab] = useState(0);
+
+  // Handle Get Started button click
+  const handleGetStartedClick = () => {
+    const solutionsSection = document.querySelector('.webapp-solutions-section');
+    if (solutionsSection) {
+      solutionsSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
+  // Handle CTA button click
+  const handleCTAClick = () => {
+    window.location.href = '/contact';
+  };
 
   return (
-    <Box sx={{ background: '#f8fafc', minHeight: '100vh' }}>
-      <GradientKeyframes />
+    <div className="webapp-service-container">
       <Navbar />
+      
       {/* Hero Section */}
-      <Box
-        sx={{
-          minHeight: '45vh',
-          display: 'flex',
-          alignItems: 'center',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          background: 'linear-gradient(90deg, #e6f7fe 0%, #b2fefa 100%)',
-          color: '#0a2239',
-          py: { xs: 8, md: 12 },
-          pt: { xs: 16, md: 20 },
-        }}
-      >
-        <Container maxWidth="lg">
-          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'flex-start', justifyContent: 'space-between', width: '100%' }}>
-            {/* Left: Content */}
-            <Box sx={{ flex: 1, pr: { md: 6 }, mb: { xs: 4, md: 0 }, position: 'relative' }}>
-              <Typography variant="h2" fontWeight={800} gutterBottom>
-                Web & App Development
-              </Typography>
-              <Typography variant="h5" color="#222" mb={3}>
-                Modern, scalable, and secure digital solutions for your business. Empower your brand with custom web and mobile experiences.
-              </Typography>
-              <Button variant="contained" size="large" sx={{ background: '#fff', color: '#232526', borderRadius: 3, fontWeight: 700, mt: 2, '&:hover': { background: '#e3f2fd' } }} href="#webapp-benefits">
-                Discover Our Approach
-              </Button>
-            </Box>
-            {/* Right: Lottie Animation (to be added) */}
-            <Box sx={{ flex: 1, display: 'flex', justifyContent: { xs: 'flex-start', md: 'center' }, alignItems: 'center', width: '100%', mt: { xs: 0, md: 6 } }}>
-              <Box sx={{ width: '100%', maxWidth: 340 }}>
-                <Lottie animationData={webdevAnimation} loop={true} style={{ width: '100%', height: 'auto' }} />
-              </Box>
-            </Box>
-          </Box>
-        </Container>
-      </Box>
-      {/* Main Content */}
-      <Container maxWidth="lg" sx={{ py: 8 }}>
-        <Grid container justifyContent="center" sx={{ mt: { xs: 2, md: 6 }, mb: 8 }}>
-          <Grid item xs={12}>
-            <Card id="webapp-benefits" elevation={3} sx={{ p: { xs: 2, md: 6 }, borderRadius: 4, background: 'rgba(255,255,255,0.95)', maxWidth: '1200px', margin: '0 auto' }}>
-              <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center', justifyContent: 'space-between' }}>
-                <Box sx={{ flex: 1, pr: { md: 6 }, width: { xs: '100%', md: '60%' } }}>
-                  <Typography variant="h4" fontWeight={700} gutterBottom color="primary.main">
-                    Why Choose Our Web & App Solutions
-                  </Typography>
-                  <Typography variant="body1" color="text.secondary" mb={3}>
-                    We build robust, user-centric applications that drive engagement and growth. Our agile process ensures your digital products are delivered on time, on budget, and with exceptional quality.
-                  </Typography>
-                  <List>
-                    {webAppBenefits.map((benefit, idx) => (
-                      <ListItem key={idx} alignItems="flex-start" sx={{ pl: 0 }}>
-                        <ListItemIcon sx={{ minWidth: 40 }}>{benefit.icon}</ListItemIcon>
-                        <ListItemText
-                          primary={<Typography variant="subtitle1" fontWeight={600}>{benefit.title}</Typography>}
-                          secondary={<Typography variant="body2" color="text.secondary">{benefit.desc}</Typography>}
-                        />
-                      </ListItem>
-                    ))}
-                  </List>
-                  <Button variant="contained" size="large" sx={{ mt: 3, borderRadius: 3 }} color="primary" href="/contact">
+      <section className="webapp-hero-section">
+        <div className="webapp-hero-background"></div>
+        <div className="webapp-hero-content">
+          <div className="webapp-hero-grid">
+            <div className="webapp-hero-left">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              >
+                <motion.div 
+                  className="webapp-hero-badge"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                >
+                  Custom Web & Mobile Solutions
+                </motion.div>
+                <motion.h1 
+                  className="webapp-hero-title"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                >
+                  Web & Mobile Application Development
+                </motion.h1>
+                <motion.p 
+                  className="webapp-hero-subtitle"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                >
+                  Transform your ideas into powerful, scalable applications. 
+                  Modern development practices for exceptional user experiences.
+                </motion.p>
+                <motion.div 
+                  className="webapp-hero-buttons"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.5 }}
+                >
+                  <Button 
+                    variant="contained"
+                    size="large"
+                    onClick={handleGetStartedClick}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    component={motion.button}
+                    sx={{
+                      background: 'linear-gradient(135deg, #0072ce 0%, #0056b3 100%)',
+                      color: 'white',
+                      padding: '1rem 2rem',
+                      borderRadius: '12px',
+                      fontWeight: 600,
+                      fontSize: '1rem',
+                      textTransform: 'none',
+                      border: 'none',
+                      boxShadow: '0 8px 25px rgba(0, 114, 206, 0.3)',
+                      transition: 'all 0.3s ease',
+                      '&:hover': {
+                        transform: 'translateY(-2px)',
+                        boxShadow: '0 12px 35px rgba(0, 114, 206, 0.4)',
+                        background: 'linear-gradient(135deg, #0056b3 0%, #004494 100%)'
+                      }
+                    }}
+                  >
                     Get Started
                   </Button>
-                </Box>
-                <Box sx={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', width: { xs: '100%', md: '40%' }, mt: { xs: 4, md: 0 } }}>
-                  <Box
-                    component="img"
-                    src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=600&q=80"
-                    alt="Modern data center for web and app development"
-                    sx={{ width: '100%', maxWidth: 340, minWidth: 220, height: '80%', minHeight: 180, borderRadius: 3, boxShadow: 2, objectFit: 'cover', my: { xs: 2, md: 4 } }}
-                  />
-                </Box>
-              </Box>
-            </Card>
-          </Grid>
-        </Grid>
-      </Container>
-    </Box>
-);
+                </motion.div>
+              </motion.div>
+            </div>
+            
+            <div className="webapp-hero-right">
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              >
+                <motion.div 
+                  className="webapp-stats-card"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="webapp-stats-background"></div>
+                  <div className="webapp-stats-content">
+                    <motion.h3 
+                      className="webapp-stats-title"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.4 }}
+                    >
+                      Why Choose Our Development Services?
+                    </motion.h3>
+                    <div className="webapp-stats-grid">
+                      {stats.map((stat, index) => (
+                        <motion.div 
+                          key={index} 
+                          className="webapp-stat-item"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
+                        >
+                          <span className="webapp-stat-value">{stat.value}</span>
+                          <div className="webapp-stat-label">{stat.label}</div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Solutions Section */}
+      <section className="webapp-solutions-section">
+        <motion.div 
+          className="webapp-solutions-header"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="webapp-solutions-title">
+            Comprehensive Development Solutions
+          </h2>
+          <p className="webapp-solutions-subtitle">
+            From web applications to mobile apps, we provide end-to-end development services
+          </p>
+        </motion.div>
+
+        <div className="webapp-solutions-grid">
+          {webAppSolutions.map((solution, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -5 }}
+            >
+              <div className="webapp-solution-card">
+                <motion.div 
+                  className="webapp-solution-icon"
+                  whileHover={{ rotate: 5, scale: 1.1 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {solution.icon}
+                </motion.div>
+                <h3 className="webapp-solution-title">
+                  {solution.title}
+                </h3>
+                <p className="webapp-solution-description">
+                  {solution.description}
+                </p>
+                <ul className="webapp-solution-features">
+                  {solution.features.map((feature, featureIndex) => (
+                    <motion.li 
+                      key={featureIndex} 
+                      className="webapp-solution-feature"
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.4, delay: featureIndex * 0.1 }}
+                      viewport={{ once: true }}
+                    >
+                      <div className="webapp-solution-feature-dot"></div>
+                      {feature}
+                    </motion.li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="webapp-process-section">
+        <div className="webapp-process-container">
+          <motion.div 
+            className="webapp-process-header"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="webapp-process-title">
+              Our Development Process
+            </h2>
+            <p className="webapp-process-subtitle">
+              A proven methodology that ensures successful application delivery
+            </p>
+          </motion.div>
+
+          <div className="webapp-process-grid">
+            {[
+              { step: '01', title: 'Discovery', desc: 'Understanding your requirements and defining project scope and objectives' },
+              { step: '02', title: 'Design', desc: 'Creating wireframes, prototypes, and user experience design' },
+              { step: '03', title: 'Development', desc: 'Building your application using modern technologies and best practices' },
+              { step: '04', title: 'Deployment', desc: 'Testing, launching, and providing ongoing support and maintenance' }
+            ].map((phase, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -5 }}
+              >
+                <div className="webapp-process-step">
+                  <motion.div 
+                    className="webapp-process-number"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {phase.step}
+                  </motion.div>
+                  <h3 className="webapp-process-step-title">
+                    {phase.title}
+                  </h3>
+                  <p className="webapp-process-step-desc">
+                    {phase.desc}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="webapp-cta-section">
+        <motion.div 
+          className="webapp-cta-card"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          whileHover={{ scale: 1.02 }}
+        >
+          <div className="webapp-cta-background"></div>
+          <div className="webapp-cta-content">
+            <motion.h2 
+              className="webapp-cta-title"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              Ready to Build Your Application?
+            </motion.h2>
+            <motion.p 
+              className="webapp-cta-subtitle"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              Let's discuss how our development services can bring your ideas to life
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <Button 
+                variant="contained"
+                size="large"
+                onClick={handleCTAClick}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                component={motion.button}
+                sx={{
+                  background: 'linear-gradient(135deg, #0072ce 0%, #0056b3 100%)',
+                  color: 'white',
+                  padding: '1rem 2rem',
+                  borderRadius: '12px',
+                  fontWeight: 600,
+                  fontSize: '1rem',
+                  textTransform: 'none',
+                  border: 'none',
+                  boxShadow: '0 8px 25px rgba(0, 114, 206, 0.3)',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 12px 35px rgba(0, 114, 206, 0.4)',
+                    background: 'linear-gradient(135deg, #0056b3 0%, #004494 100%)'
+                  }
+                }}
+              >
+                Start Your Project
+              </Button>
+            </motion.div>
+          </div>
+        </motion.div>
+      </section>
+    </div>
+  );
 };
 
 export default WebAppService; 

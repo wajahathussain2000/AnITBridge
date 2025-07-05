@@ -1,122 +1,12 @@
-.service-detail-layout {
-  display: flex;
-  align-items: flex-start;
-  max-width: 1300px;
-  margin: 36px auto 0 auto;
-  padding: 0 18px;
-  gap: 32px;
-}
-.service-detail-main {
-  flex: 1;
-  background: #fff;
-  border-radius: 8px;
-  padding: 32px 36px 36px 36px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-}
-.service-badge {
-  display: inline-block;
-  background: #e3ecef;
-  color: #006d77;
-  font-weight: 700;
-  font-size: 0.98rem;
-  border-radius: 6px;
-  padding: 6px 18px;
-  margin-bottom: 18px;
-  letter-spacing: 0.01em;
-}
-.why-badge {
-  display: inline-block;
-  background: #b2dfdb;
-  color: #006d77;
-  font-weight: 700;
-  font-size: 0.95rem;
-  border-radius: 6px;
-  padding: 5px 14px;
-  margin-bottom: 12px;
-  letter-spacing: 0.01em;
-}
-.service-why-choose {
-  background: #eaf7f6;
-  border-radius: 8px;
-  margin-top: 36px;
-  padding: 28px 24px;
-  display: flex;
-  align-items: flex-start;
-  gap: 32px;
-}
-.why-choose-content {
-  flex: 1.5;
-}
-.why-choose-content h3 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 18px;
-  color: #222;
-}
-.why-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.why-list li {
-  margin-bottom: 18px;
-  font-size: 1.08rem;
-  color: #222;
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-}
-.why-icon {
-  color: #009688;
-  font-size: 1.25rem;
-  margin-top: 4px;
-}
-.why-desc {
-  font-size: 0.98rem;
-  color: #444;
-  font-weight: 400;
-}
-.why-choose-image {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.why-choose-image img {
-  width: 220px;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 18px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-}
-@media (max-width: 1000px) {
-  .service-detail-layout {
-    flex-direction: column;
-    gap: 18px;
-  }
-  .service-detail-main {
-    padding: 18px 10px 18px 10px;
-  }
-  .service-why-choose {
-    flex-direction: column;
-    gap: 18px;
-    padding: 18px 10px;
-  }
-  .why-choose-image img {
-    width: 100%;
-    height: 180px;
-  }
-}
-
-/* UI/UX Service Page Styles */
-.uiux-service-container {
+/* Cloud Service Page Styles */
+.cloud-service-container {
   min-height: 100vh;
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 /* Hero Section */
-.uiux-hero-section {
+.cloud-hero-section {
   position: relative;
   min-height: 100vh;
   display: flex;
@@ -125,20 +15,20 @@
   background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%);
 }
 
-.uiux-hero-background {
+.cloud-hero-background {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background: 
-    radial-gradient(circle at 20% 80%, rgba(56, 189, 248, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(99, 102, 241, 0.05) 0%, transparent 50%);
+    radial-gradient(circle at 20% 80%, rgba(56, 249, 215, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(32, 201, 151, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(56, 249, 215, 0.1) 0%, transparent 50%);
   z-index: 1;
 }
 
-.uiux-hero-content {
+.cloud-hero-content {
   position: relative;
   z-index: 2;
   width: 100%;
@@ -147,38 +37,38 @@
   padding: 0 2rem;
 }
 
-.uiux-hero-grid {
+.cloud-hero-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
 }
 
-.uiux-hero-left {
+.cloud-hero-left {
   color: white;
 }
 
-.uiux-hero-badge {
+.cloud-hero-badge {
   display: inline-block;
-  background: rgba(56, 189, 248, 0.2);
-  color: #38bdf8;
+  background: rgba(56, 249, 215, 0.2);
+  color: #38f9d7;
   padding: 0.5rem 1rem;
   border-radius: 50px;
   font-size: 0.875rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
-  border: 1px solid rgba(56, 189, 248, 0.3);
+  border: 1px solid rgba(56, 249, 215, 0.3);
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
 }
 
-.uiux-hero-badge:hover {
-  background: rgba(56, 189, 248, 0.3);
+.cloud-hero-badge:hover {
+  background: rgba(56, 249, 215, 0.3);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(56, 189, 248, 0.3);
+  box-shadow: 0 8px 25px rgba(56, 249, 215, 0.3);
 }
 
-.uiux-hero-title {
+.cloud-hero-title {
   font-size: 3.5rem;
   font-weight: 700;
   line-height: 1.1;
@@ -189,7 +79,7 @@
   background-clip: text;
 }
 
-.uiux-hero-subtitle {
+.cloud-hero-subtitle {
   font-size: 1.25rem;
   line-height: 1.6;
   color: #cbd5e1;
@@ -197,13 +87,13 @@
   max-width: 500px;
 }
 
-.uiux-hero-buttons {
+.cloud-hero-buttons {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
 }
 
-.uiux-hero-primary-btn {
+.cloud-hero-primary-btn {
   background: linear-gradient(135deg, #0072ce 0%, #0056b3 100%) !important;
   color: white !important;
   padding: 1rem 2rem !important;
@@ -218,7 +108,7 @@
   overflow: hidden;
 }
 
-.uiux-hero-primary-btn::before {
+.cloud-hero-primary-btn::before {
   content: '';
   position: absolute;
   top: 0;
@@ -229,17 +119,17 @@
   transition: left 0.5s ease;
 }
 
-.uiux-hero-primary-btn:hover::before {
+.cloud-hero-primary-btn:hover::before {
   left: 100%;
 }
 
-.uiux-hero-primary-btn:hover {
+.cloud-hero-primary-btn:hover {
   transform: translateY(-2px) !important;
   box-shadow: 0 12px 35px rgba(0, 114, 206, 0.4) !important;
 }
 
 /* Stats Card */
-.uiux-stats-card {
+.cloud-stats-card {
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -250,24 +140,24 @@
   transition: all 0.3s ease;
 }
 
-.uiux-stats-background {
+.cloud-stats-background {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background: 
-    radial-gradient(circle at 30% 70%, rgba(56, 189, 248, 0.2) 0%, transparent 50%),
-    radial-gradient(circle at 70% 30%, rgba(59, 130, 246, 0.2) 0%, transparent 50%);
+    radial-gradient(circle at 30% 70%, rgba(56, 249, 215, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 70% 30%, rgba(32, 201, 151, 0.2) 0%, transparent 50%);
   z-index: -1;
 }
 
-.uiux-stats-content {
+.cloud-stats-content {
   position: relative;
   z-index: 1;
 }
 
-.uiux-stats-title {
+.cloud-stats-title {
   color: white;
   font-size: 1.5rem;
   font-weight: 600;
@@ -275,13 +165,13 @@
   text-align: center;
 }
 
-.uiux-stats-grid {
+.cloud-stats-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
 }
 
-.uiux-stat-item {
+.cloud-stat-item {
   text-align: center;
   padding: 1rem;
   background: rgba(255, 255, 255, 0.05);
@@ -290,13 +180,13 @@
   transition: all 0.3s ease;
 }
 
-.uiux-stat-item:hover {
+.cloud-stat-item:hover {
   background: rgba(255, 255, 255, 0.1);
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
-.uiux-stat-value {
+.cloud-stat-value {
   display: block;
   font-size: 2rem;
   font-weight: 700;
@@ -304,26 +194,26 @@
   margin-bottom: 0.5rem;
 }
 
-.uiux-stat-label {
+.cloud-stat-label {
   font-size: 0.875rem;
   color: #cbd5e1;
   font-weight: 500;
 }
 
 /* Solutions Section */
-.uiux-solutions-section {
+.cloud-solutions-section {
   padding: 6rem 0;
   background: white;
 }
 
-.uiux-solutions-header {
+.cloud-solutions-header {
   text-align: center;
   max-width: 800px;
   margin: 0 auto 4rem;
   padding: 0 2rem;
 }
 
-.uiux-solutions-title {
+.cloud-solutions-title {
   font-size: 3rem;
   font-weight: 700;
   color: #1e293b;
@@ -334,13 +224,13 @@
   background-clip: text;
 }
 
-.uiux-solutions-subtitle {
+.cloud-solutions-subtitle {
   font-size: 1.25rem;
   color: #64748b;
   line-height: 1.6;
 }
 
-.uiux-solutions-grid {
+.cloud-solutions-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
@@ -349,7 +239,7 @@
   padding: 0 2rem;
 }
 
-.uiux-solution-card {
+.cloud-solution-card {
   background: white;
   border-radius: 20px;
   padding: 2.5rem;
@@ -360,7 +250,7 @@
   overflow: hidden;
 }
 
-.uiux-solution-card::before {
+.cloud-solution-card::before {
   content: '';
   position: absolute;
   top: 0;
@@ -372,17 +262,17 @@
   transition: transform 0.3s ease;
 }
 
-.uiux-solution-card:hover::before {
+.cloud-solution-card:hover::before {
   transform: scaleX(1);
 }
 
-.uiux-solution-card:hover {
+.cloud-solution-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
   border-color: #cbd5e1;
 }
 
-.uiux-solution-icon {
+.cloud-solution-icon {
   width: 80px;
   height: 80px;
   background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
@@ -394,31 +284,31 @@
   transition: all 0.3s ease;
 }
 
-.uiux-solution-card:hover .uiux-solution-icon {
+.cloud-solution-card:hover .cloud-solution-icon {
   background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
   box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
 }
 
-.uiux-solution-title {
+.cloud-solution-title {
   font-size: 1.5rem;
   font-weight: 600;
   color: #1e293b;
   margin-bottom: 1rem;
 }
 
-.uiux-solution-description {
+.cloud-solution-description {
   color: #64748b;
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
 
-.uiux-solution-features {
+.cloud-solution-features {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.uiux-solution-feature {
+.cloud-solution-feature {
   display: flex;
   align-items: center;
   margin-bottom: 0.75rem;
@@ -427,12 +317,12 @@
   transition: all 0.3s ease;
 }
 
-.uiux-solution-feature:hover {
+.cloud-solution-feature:hover {
   color: #1e293b;
   transform: translateX(5px);
 }
 
-.uiux-solution-feature-dot {
+.cloud-solution-feature-dot {
   width: 8px;
   height: 8px;
   background: #0072ce;
@@ -442,30 +332,30 @@
   transition: all 0.3s ease;
 }
 
-.uiux-solution-feature:hover .uiux-solution-feature-dot {
+.cloud-solution-feature:hover .cloud-solution-feature-dot {
   background: #38bdf8;
   transform: scale(1.2);
 }
 
 /* Process Section */
-.uiux-process-section {
+.cloud-process-section {
   padding: 6rem 0;
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
 }
 
-.uiux-process-container {
+.cloud-process-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
-.uiux-process-header {
+.cloud-process-header {
   text-align: center;
   max-width: 800px;
   margin: 0 auto 4rem;
 }
 
-.uiux-process-title {
+.cloud-process-title {
   font-size: 3rem;
   font-weight: 700;
   color: #1e293b;
@@ -476,19 +366,19 @@
   background-clip: text;
 }
 
-.uiux-process-subtitle {
+.cloud-process-subtitle {
   font-size: 1.25rem;
   color: #64748b;
   line-height: 1.6;
 }
 
-.uiux-process-grid {
+.cloud-process-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
 }
 
-.uiux-process-step {
+.cloud-process-step {
   background: white;
   border-radius: 20px;
   padding: 2.5rem;
@@ -500,7 +390,7 @@
   overflow: hidden;
 }
 
-.uiux-process-step::before {
+.cloud-process-step::before {
   content: '';
   position: absolute;
   top: 0;
@@ -512,17 +402,17 @@
   transition: opacity 0.3s ease;
 }
 
-.uiux-process-step:hover::before {
+.cloud-process-step:hover::before {
   opacity: 1;
 }
 
-.uiux-process-step:hover {
+.cloud-process-step:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
   border-color: #cbd5e1;
 }
 
-.uiux-process-number {
+.cloud-process-number {
   width: 80px;
   height: 80px;
   background: linear-gradient(135deg, #0072ce 0%, #38bdf8 100%);
@@ -538,29 +428,29 @@
   transition: all 0.3s ease;
 }
 
-.uiux-process-step:hover .uiux-process-number {
+.cloud-process-step:hover .cloud-process-number {
   box-shadow: 0 12px 35px rgba(0, 114, 206, 0.4);
 }
 
-.uiux-process-step-title {
+.cloud-process-step-title {
   font-size: 1.25rem;
   font-weight: 600;
   color: #1e293b;
   margin-bottom: 1rem;
 }
 
-.uiux-process-step-desc {
+.cloud-process-step-desc {
   color: #64748b;
   line-height: 1.6;
 }
 
 /* CTA Section */
-.uiux-cta-section {
+.cloud-cta-section {
   padding: 6rem 0;
   background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
 }
 
-.uiux-cta-card {
+.cloud-cta-card {
   max-width: 800px;
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.15);
@@ -574,31 +464,31 @@
   transition: all 0.3s ease;
 }
 
-.uiux-cta-background {
+.cloud-cta-background {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background: 
-    radial-gradient(circle at 30% 70%, rgba(56, 189, 248, 0.2) 0%, transparent 50%),
-    radial-gradient(circle at 70% 30%, rgba(59, 130, 246, 0.2) 0%, transparent 50%);
+    radial-gradient(circle at 30% 70%, rgba(56, 249, 215, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 70% 30%, rgba(32, 201, 151, 0.2) 0%, transparent 50%);
   z-index: -1;
 }
 
-.uiux-cta-content {
+.cloud-cta-content {
   position: relative;
   z-index: 1;
 }
 
-.uiux-cta-title {
+.cloud-cta-title {
   font-size: 2.5rem;
   font-weight: 700;
   color: white;
   margin-bottom: 1.5rem;
 }
 
-.uiux-cta-subtitle {
+.cloud-cta-subtitle {
   font-size: 1.25rem;
   color: #cbd5e1;
   line-height: 1.6;
@@ -608,7 +498,7 @@
   margin-right: auto;
 }
 
-.uiux-cta-button {
+.cloud-cta-button {
   background: linear-gradient(135deg, #0072ce 0%, #0056b3 100%) !important;
   color: white !important;
   padding: 1rem 2.5rem !important;
@@ -623,7 +513,7 @@
   overflow: hidden;
 }
 
-.uiux-cta-button::before {
+.cloud-cta-button::before {
   content: '';
   position: absolute;
   top: 0;
@@ -634,140 +524,140 @@
   transition: left 0.5s ease;
 }
 
-.uiux-cta-button:hover::before {
+.cloud-cta-button:hover::before {
   left: 100%;
 }
 
-.uiux-cta-button:hover {
+.cloud-cta-button:hover {
   transform: translateY(-2px) !important;
   box-shadow: 0 12px 35px rgba(0, 114, 206, 0.4) !important;
 }
 
 /* Responsive Design */
 @media (max-width: 1200px) {
-  .uiux-solutions-grid {
+  .cloud-solutions-grid {
     grid-template-columns: repeat(2, 1fr);
     max-width: 1000px;
   }
   
-  .uiux-process-grid {
+  .cloud-process-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 1024px) {
-  .uiux-hero-grid {
+  .cloud-hero-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
   
-  .uiux-hero-title {
+  .cloud-hero-title {
     font-size: 3rem;
   }
   
-  .uiux-solutions-title,
-  .uiux-process-title {
+  .cloud-solutions-title,
+  .cloud-process-title {
     font-size: 2.5rem;
   }
 }
 
 @media (max-width: 768px) {
-  .uiux-hero-content {
+  .cloud-hero-content {
     padding: 0 1rem;
   }
   
-  .uiux-hero-title {
+  .cloud-hero-title {
     font-size: 2.5rem;
   }
   
-  .uiux-hero-subtitle {
+  .cloud-hero-subtitle {
     font-size: 1.125rem;
   }
   
-  .uiux-hero-buttons {
+  .cloud-hero-buttons {
     flex-direction: column;
     align-items: stretch;
   }
   
-  .uiux-hero-primary-btn {
+  .cloud-hero-primary-btn {
     width: 100%;
   }
   
-  .uiux-stats-card {
+  .cloud-stats-card {
     padding: 2rem;
   }
   
-  .uiux-stats-grid {
+  .cloud-stats-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
   
-  .uiux-solutions-grid {
+  .cloud-solutions-grid {
     grid-template-columns: 1fr;
     padding: 0 1rem;
   }
   
-  .uiux-solution-card {
+  .cloud-solution-card {
     padding: 2rem;
   }
   
-  .uiux-process-grid {
+  .cloud-process-grid {
     grid-template-columns: 1fr;
   }
   
-  .uiux-process-step {
+  .cloud-process-step {
     padding: 2rem;
   }
   
-  .uiux-cta-card {
+  .cloud-cta-card {
     margin: 0 1rem;
     padding: 2rem;
   }
   
-  .uiux-cta-title {
+  .cloud-cta-title {
     font-size: 2rem;
   }
   
-  .uiux-cta-subtitle {
+  .cloud-cta-subtitle {
     font-size: 1.125rem;
   }
   
-  .uiux-solutions-title,
-  .uiux-process-title {
+  .cloud-solutions-title,
+  .cloud-process-title {
     font-size: 2rem;
   }
 }
 
 @media (max-width: 480px) {
-  .uiux-hero-title {
+  .cloud-hero-title {
     font-size: 2rem;
   }
   
-  .uiux-hero-subtitle {
+  .cloud-hero-subtitle {
     font-size: 1rem;
   }
   
-  .uiux-stats-card {
+  .cloud-stats-card {
     padding: 1.5rem;
   }
   
-  .uiux-solution-card {
+  .cloud-solution-card {
     padding: 1.5rem;
   }
   
-  .uiux-process-step {
+  .cloud-process-step {
     padding: 1.5rem;
   }
   
-  .uiux-cta-card {
+  .cloud-cta-card {
     padding: 1.5rem;
   }
   
-  .uiux-cta-title {
+  .cloud-cta-title {
     font-size: 1.75rem;
   }
   
-  .uiux-cta-subtitle {
+  .cloud-cta-subtitle {
     font-size: 1rem;
   }
 }
@@ -778,7 +668,7 @@ html {
 }
 
 /* Additional hover effects and transitions */
-.uiux-service-container * {
+.cloud-service-container * {
   transition: all 0.3s ease;
 }
 
@@ -794,7 +684,7 @@ html {
   }
 }
 
-.uiux-stat-item {
+.cloud-stat-item {
   animation: fadeInUp 0.6s ease forwards;
 }
 
@@ -811,10 +701,10 @@ html {
   }
 }
 
-.uiux-cta-button {
+.cloud-cta-button {
   animation: pulse 2s infinite;
 }
 
-.uiux-cta-button:hover {
+.cloud-cta-button:hover {
   animation: none;
 } 

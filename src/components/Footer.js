@@ -1,8 +1,20 @@
 import React from 'react';
 import '../styles/Footer.css';
 
-const Footer = () => (
+const Footer = () => {
+  const handleGetStartedClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
+  return (
   <footer className="modern-footer">
+    {/* 3D Geometric Background Elements */}
+    <div className="floating-shapes"></div>
+    <div className="cube-shape"></div>
+    
     <div className="modern-footer-shapes">
       <div className="footer-blob blob1" />
       <div className="footer-blob blob2" />
@@ -14,7 +26,7 @@ const Footer = () => (
       <div className="modern-footer-cta-desc">
         If you're interested in our partnership and would like to find out some more information, one of our advisors is excited to help.
       </div>
-      <button className="modern-footer-cta-btn">Get started</button>
+      <button className="modern-footer-cta-btn" onClick={handleGetStartedClick}>Get started</button>
     </div>
     <div className="modern-footer-content">
       <div className="modern-footer-logo-col">
@@ -52,6 +64,7 @@ const Footer = () => (
       <a href="#">Privacy Policy</a>
     </div>
   </footer>
-);
+  );
+};
 
 export default Footer; 

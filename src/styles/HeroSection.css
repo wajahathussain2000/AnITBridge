@@ -59,4 +59,42 @@
   .hero-section-shared {
     padding-top: 70px;
   }
+}
+
+/* Flying Robot Constraints */
+.flying-robot-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.flying-robot {
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+
+.flying-robot-content-protection {
+  position: relative;
+  z-index: 2;
+  pointer-events: auto;
+}
+
+/* Ensure robot doesn't interfere with text content */
+.hero-content-text {
+  position: relative;
+  z-index: 3;
+  pointer-events: auto;
+}
+
+/* Mobile adjustments for flying robot */
+@media (max-width: 700px) {
+  .flying-robot {
+    transform: scale(0.8);
+  }
+}
+
+@media (max-width: 480px) {
+  .flying-robot {
+    transform: scale(0.6);
+  }
 } 

@@ -52,7 +52,7 @@ const WhyChooseUsSection = () => {
   }, [animate]);
 
   return (
-    <section className="whychoose-merged-section" ref={sectionRef}>
+    <section id="why-choose-us" className="whychoose-merged-section" ref={sectionRef}>
       <div className="whychoose-merged-container">
         <div className="whychoose-merged-left">
           <div className="whychoose-merged-heading-row">

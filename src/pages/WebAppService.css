@@ -1,122 +1,12 @@
-.service-detail-layout {
-  display: flex;
-  align-items: flex-start;
-  max-width: 1300px;
-  margin: 36px auto 0 auto;
-  padding: 0 18px;
-  gap: 32px;
-}
-.service-detail-main {
-  flex: 1;
-  background: #fff;
-  border-radius: 8px;
-  padding: 32px 36px 36px 36px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-}
-.service-badge {
-  display: inline-block;
-  background: #e3ecef;
-  color: #006d77;
-  font-weight: 700;
-  font-size: 0.98rem;
-  border-radius: 6px;
-  padding: 6px 18px;
-  margin-bottom: 18px;
-  letter-spacing: 0.01em;
-}
-.why-badge {
-  display: inline-block;
-  background: #b2dfdb;
-  color: #006d77;
-  font-weight: 700;
-  font-size: 0.95rem;
-  border-radius: 6px;
-  padding: 5px 14px;
-  margin-bottom: 12px;
-  letter-spacing: 0.01em;
-}
-.service-why-choose {
-  background: #eaf7f6;
-  border-radius: 8px;
-  margin-top: 36px;
-  padding: 28px 24px;
-  display: flex;
-  align-items: flex-start;
-  gap: 32px;
-}
-.why-choose-content {
-  flex: 1.5;
-}
-.why-choose-content h3 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 18px;
-  color: #222;
-}
-.why-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.why-list li {
-  margin-bottom: 18px;
-  font-size: 1.08rem;
-  color: #222;
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-}
-.why-icon {
-  color: #009688;
-  font-size: 1.25rem;
-  margin-top: 4px;
-}
-.why-desc {
-  font-size: 0.98rem;
-  color: #444;
-  font-weight: 400;
-}
-.why-choose-image {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.why-choose-image img {
-  width: 220px;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 18px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-}
-@media (max-width: 1000px) {
-  .service-detail-layout {
-    flex-direction: column;
-    gap: 18px;
-  }
-  .service-detail-main {
-    padding: 18px 10px 18px 10px;
-  }
-  .service-why-choose {
-    flex-direction: column;
-    gap: 18px;
-    padding: 18px 10px;
-  }
-  .why-choose-image img {
-    width: 100%;
-    height: 180px;
-  }
-}
-
-/* UI/UX Service Page Styles */
-.uiux-service-container {
+/* WebApp Service Page Styles */
+.webapp-service-container {
   min-height: 100vh;
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 /* Hero Section */
-.uiux-hero-section {
+.webapp-hero-section {
   position: relative;
   min-height: 100vh;
   display: flex;
@@ -125,7 +15,7 @@
   background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%);
 }
 
-.uiux-hero-background {
+.webapp-hero-background {
   position: absolute;
   top: 0;
   left: 0;
@@ -138,7 +28,7 @@
   z-index: 1;
 }
 
-.uiux-hero-content {
+.webapp-hero-content {
   position: relative;
   z-index: 2;
   width: 100%;
@@ -147,18 +37,18 @@
   padding: 0 2rem;
 }
 
-.uiux-hero-grid {
+.webapp-hero-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
 }
 
-.uiux-hero-left {
+.webapp-hero-left {
   color: white;
 }
 
-.uiux-hero-badge {
+.webapp-hero-badge {
   display: inline-block;
   background: rgba(56, 189, 248, 0.2);
   color: #38bdf8;
@@ -172,13 +62,13 @@
   transition: all 0.3s ease;
 }
 
-.uiux-hero-badge:hover {
+.webapp-hero-badge:hover {
   background: rgba(56, 189, 248, 0.3);
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(56, 189, 248, 0.3);
 }
 
-.uiux-hero-title {
+.webapp-hero-title {
   font-size: 3.5rem;
   font-weight: 700;
   line-height: 1.1;
@@ -189,7 +79,7 @@
   background-clip: text;
 }
 
-.uiux-hero-subtitle {
+.webapp-hero-subtitle {
   font-size: 1.25rem;
   line-height: 1.6;
   color: #cbd5e1;
@@ -197,13 +87,13 @@
   max-width: 500px;
 }
 
-.uiux-hero-buttons {
+.webapp-hero-buttons {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
 }
 
-.uiux-hero-primary-btn {
+.webapp-hero-primary-btn {
   background: linear-gradient(135deg, #0072ce 0%, #0056b3 100%) !important;
   color: white !important;
   padding: 1rem 2rem !important;
@@ -218,7 +108,7 @@
   overflow: hidden;
 }
 
-.uiux-hero-primary-btn::before {
+.webapp-hero-primary-btn::before {
   content: '';
   position: absolute;
   top: 0;
@@ -229,17 +119,17 @@
   transition: left 0.5s ease;
 }
 
-.uiux-hero-primary-btn:hover::before {
+.webapp-hero-primary-btn:hover::before {
   left: 100%;
 }
 
-.uiux-hero-primary-btn:hover {
+.webapp-hero-primary-btn:hover {
   transform: translateY(-2px) !important;
   box-shadow: 0 12px 35px rgba(0, 114, 206, 0.4) !important;
 }
 
 /* Stats Card */
-.uiux-stats-card {
+.webapp-stats-card {
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -250,7 +140,7 @@
   transition: all 0.3s ease;
 }
 
-.uiux-stats-background {
+.webapp-stats-background {
   position: absolute;
   top: 0;
   left: 0;
@@ -262,12 +152,12 @@
   z-index: -1;
 }
 
-.uiux-stats-content {
+.webapp-stats-content {
   position: relative;
   z-index: 1;
 }
 
-.uiux-stats-title {
+.webapp-stats-title {
   color: white;
   font-size: 1.5rem;
   font-weight: 600;
@@ -275,13 +165,13 @@
   text-align: center;
 }
 
-.uiux-stats-grid {
+.webapp-stats-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
 }
 
-.uiux-stat-item {
+.webapp-stat-item {
   text-align: center;
   padding: 1rem;
   background: rgba(255, 255, 255, 0.05);
@@ -290,13 +180,13 @@
   transition: all 0.3s ease;
 }
 
-.uiux-stat-item:hover {
+.webapp-stat-item:hover {
   background: rgba(255, 255, 255, 0.1);
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
-.uiux-stat-value {
+.webapp-stat-value {
   display: block;
   font-size: 2rem;
   font-weight: 700;
@@ -304,26 +194,26 @@
   margin-bottom: 0.5rem;
 }
 
-.uiux-stat-label {
+.webapp-stat-label {
   font-size: 0.875rem;
   color: #cbd5e1;
   font-weight: 500;
 }
 
 /* Solutions Section */
-.uiux-solutions-section {
+.webapp-solutions-section {
   padding: 6rem 0;
   background: white;
 }
 
-.uiux-solutions-header {
+.webapp-solutions-header {
   text-align: center;
   max-width: 800px;
   margin: 0 auto 4rem;
   padding: 0 2rem;
 }
 
-.uiux-solutions-title {
+.webapp-solutions-title {
   font-size: 3rem;
   font-weight: 700;
   color: #1e293b;
@@ -334,13 +224,13 @@
   background-clip: text;
 }
 
-.uiux-solutions-subtitle {
+.webapp-solutions-subtitle {
   font-size: 1.25rem;
   color: #64748b;
   line-height: 1.6;
 }
 
-.uiux-solutions-grid {
+.webapp-solutions-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
@@ -349,7 +239,7 @@
   padding: 0 2rem;
 }
 
-.uiux-solution-card {
+.webapp-solution-card {
   background: white;
   border-radius: 20px;
   padding: 2.5rem;
@@ -360,7 +250,7 @@
   overflow: hidden;
 }
 
-.uiux-solution-card::before {
+.webapp-solution-card::before {
   content: '';
   position: absolute;
   top: 0;
@@ -372,17 +262,17 @@
   transition: transform 0.3s ease;
 }
 
-.uiux-solution-card:hover::before {
+.webapp-solution-card:hover::before {
   transform: scaleX(1);
 }
 
-.uiux-solution-card:hover {
+.webapp-solution-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
   border-color: #cbd5e1;
 }
 
-.uiux-solution-icon {
+.webapp-solution-icon {
   width: 80px;
   height: 80px;
   background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
@@ -394,31 +284,31 @@
   transition: all 0.3s ease;
 }
 
-.uiux-solution-card:hover .uiux-solution-icon {
+.webapp-solution-card:hover .webapp-solution-icon {
   background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
   box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
 }
 
-.uiux-solution-title {
+.webapp-solution-title {
   font-size: 1.5rem;
   font-weight: 600;
   color: #1e293b;
   margin-bottom: 1rem;
 }
 
-.uiux-solution-description {
+.webapp-solution-description {
   color: #64748b;
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
 
-.uiux-solution-features {
+.webapp-solution-features {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.uiux-solution-feature {
+.webapp-solution-feature {
   display: flex;
   align-items: center;
   margin-bottom: 0.75rem;
@@ -427,12 +317,12 @@
   transition: all 0.3s ease;
 }
 
-.uiux-solution-feature:hover {
+.webapp-solution-feature:hover {
   color: #1e293b;
   transform: translateX(5px);
 }
 
-.uiux-solution-feature-dot {
+.webapp-solution-feature-dot {
   width: 8px;
   height: 8px;
   background: #0072ce;
@@ -442,30 +332,30 @@
   transition: all 0.3s ease;
 }
 
-.uiux-solution-feature:hover .uiux-solution-feature-dot {
+.webapp-solution-feature:hover .webapp-solution-feature-dot {
   background: #38bdf8;
   transform: scale(1.2);
 }
 
 /* Process Section */
-.uiux-process-section {
+.webapp-process-section {
   padding: 6rem 0;
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
 }
 
-.uiux-process-container {
+.webapp-process-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
-.uiux-process-header {
+.webapp-process-header {
   text-align: center;
   max-width: 800px;
   margin: 0 auto 4rem;
 }
 
-.uiux-process-title {
+.webapp-process-title {
   font-size: 3rem;
   font-weight: 700;
   color: #1e293b;
@@ -476,19 +366,19 @@
   background-clip: text;
 }
 
-.uiux-process-subtitle {
+.webapp-process-subtitle {
   font-size: 1.25rem;
   color: #64748b;
   line-height: 1.6;
 }
 
-.uiux-process-grid {
+.webapp-process-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
 }
 
-.uiux-process-step {
+.webapp-process-step {
   background: white;
   border-radius: 20px;
   padding: 2.5rem;
@@ -500,7 +390,7 @@
   overflow: hidden;
 }
 
-.uiux-process-step::before {
+.webapp-process-step::before {
   content: '';
   position: absolute;
   top: 0;
@@ -512,17 +402,17 @@
   transition: opacity 0.3s ease;
 }
 
-.uiux-process-step:hover::before {
+.webapp-process-step:hover::before {
   opacity: 1;
 }
 
-.uiux-process-step:hover {
+.webapp-process-step:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
   border-color: #cbd5e1;
 }
 
-.uiux-process-number {
+.webapp-process-number {
   width: 80px;
   height: 80px;
   background: linear-gradient(135deg, #0072ce 0%, #38bdf8 100%);
@@ -538,29 +428,29 @@
   transition: all 0.3s ease;
 }
 
-.uiux-process-step:hover .uiux-process-number {
+.webapp-process-step:hover .webapp-process-number {
   box-shadow: 0 12px 35px rgba(0, 114, 206, 0.4);
 }
 
-.uiux-process-step-title {
+.webapp-process-step-title {
   font-size: 1.25rem;
   font-weight: 600;
   color: #1e293b;
   margin-bottom: 1rem;
 }
 
-.uiux-process-step-desc {
+.webapp-process-step-desc {
   color: #64748b;
   line-height: 1.6;
 }
 
 /* CTA Section */
-.uiux-cta-section {
+.webapp-cta-section {
   padding: 6rem 0;
   background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
 }
 
-.uiux-cta-card {
+.webapp-cta-card {
   max-width: 800px;
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.15);
@@ -574,7 +464,7 @@
   transition: all 0.3s ease;
 }
 
-.uiux-cta-background {
+.webapp-cta-background {
   position: absolute;
   top: 0;
   left: 0;
@@ -586,19 +476,19 @@
   z-index: -1;
 }
 
-.uiux-cta-content {
+.webapp-cta-content {
   position: relative;
   z-index: 1;
 }
 
-.uiux-cta-title {
+.webapp-cta-title {
   font-size: 2.5rem;
   font-weight: 700;
   color: white;
   margin-bottom: 1.5rem;
 }
 
-.uiux-cta-subtitle {
+.webapp-cta-subtitle {
   font-size: 1.25rem;
   color: #cbd5e1;
   line-height: 1.6;
@@ -608,7 +498,7 @@
   margin-right: auto;
 }
 
-.uiux-cta-button {
+.webapp-cta-button {
   background: linear-gradient(135deg, #0072ce 0%, #0056b3 100%) !important;
   color: white !important;
   padding: 1rem 2.5rem !important;
@@ -623,7 +513,7 @@
   overflow: hidden;
 }
 
-.uiux-cta-button::before {
+.webapp-cta-button::before {
   content: '';
   position: absolute;
   top: 0;
@@ -634,140 +524,140 @@
   transition: left 0.5s ease;
 }
 
-.uiux-cta-button:hover::before {
+.webapp-cta-button:hover::before {
   left: 100%;
 }
 
-.uiux-cta-button:hover {
+.webapp-cta-button:hover {
   transform: translateY(-2px) !important;
   box-shadow: 0 12px 35px rgba(0, 114, 206, 0.4) !important;
 }
 
 /* Responsive Design */
 @media (max-width: 1200px) {
-  .uiux-solutions-grid {
+  .webapp-solutions-grid {
     grid-template-columns: repeat(2, 1fr);
     max-width: 1000px;
   }
   
-  .uiux-process-grid {
+  .webapp-process-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 1024px) {
-  .uiux-hero-grid {
+  .webapp-hero-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
   
-  .uiux-hero-title {
+  .webapp-hero-title {
     font-size: 3rem;
   }
   
-  .uiux-solutions-title,
-  .uiux-process-title {
+  .webapp-solutions-title,
+  .webapp-process-title {
     font-size: 2.5rem;
   }
 }
 
 @media (max-width: 768px) {
-  .uiux-hero-content {
+  .webapp-hero-content {
     padding: 0 1rem;
   }
   
-  .uiux-hero-title {
+  .webapp-hero-title {
     font-size: 2.5rem;
   }
   
-  .uiux-hero-subtitle {
+  .webapp-hero-subtitle {
     font-size: 1.125rem;
   }
   
-  .uiux-hero-buttons {
+  .webapp-hero-buttons {
     flex-direction: column;
     align-items: stretch;
   }
   
-  .uiux-hero-primary-btn {
+  .webapp-hero-primary-btn {
     width: 100%;
   }
   
-  .uiux-stats-card {
+  .webapp-stats-card {
     padding: 2rem;
   }
   
-  .uiux-stats-grid {
+  .webapp-stats-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
   
-  .uiux-solutions-grid {
+  .webapp-solutions-grid {
     grid-template-columns: 1fr;
     padding: 0 1rem;
   }
   
-  .uiux-solution-card {
+  .webapp-solution-card {
     padding: 2rem;
   }
   
-  .uiux-process-grid {
+  .webapp-process-grid {
     grid-template-columns: 1fr;
   }
   
-  .uiux-process-step {
+  .webapp-process-step {
     padding: 2rem;
   }
   
-  .uiux-cta-card {
+  .webapp-cta-card {
     margin: 0 1rem;
     padding: 2rem;
   }
   
-  .uiux-cta-title {
+  .webapp-cta-title {
     font-size: 2rem;
   }
   
-  .uiux-cta-subtitle {
+  .webapp-cta-subtitle {
     font-size: 1.125rem;
   }
   
-  .uiux-solutions-title,
-  .uiux-process-title {
+  .webapp-solutions-title,
+  .webapp-process-title {
     font-size: 2rem;
   }
 }
 
 @media (max-width: 480px) {
-  .uiux-hero-title {
+  .webapp-hero-title {
     font-size: 2rem;
   }
   
-  .uiux-hero-subtitle {
+  .webapp-hero-subtitle {
     font-size: 1rem;
   }
   
-  .uiux-stats-card {
+  .webapp-stats-card {
     padding: 1.5rem;
   }
   
-  .uiux-solution-card {
+  .webapp-solution-card {
     padding: 1.5rem;
   }
   
-  .uiux-process-step {
+  .webapp-process-step {
     padding: 1.5rem;
   }
   
-  .uiux-cta-card {
+  .webapp-cta-card {
     padding: 1.5rem;
   }
   
-  .uiux-cta-title {
+  .webapp-cta-title {
     font-size: 1.75rem;
   }
   
-  .uiux-cta-subtitle {
+  .webapp-cta-subtitle {
     font-size: 1rem;
   }
 }
@@ -778,7 +668,7 @@ html {
 }
 
 /* Additional hover effects and transitions */
-.uiux-service-container * {
+.webapp-service-container * {
   transition: all 0.3s ease;
 }
 
@@ -794,7 +684,7 @@ html {
   }
 }
 
-.uiux-stat-item {
+.webapp-stat-item {
   animation: fadeInUp 0.6s ease forwards;
 }
 
@@ -811,10 +701,10 @@ html {
   }
 }
 
-.uiux-cta-button {
+.webapp-cta-button {
   animation: pulse 2s infinite;
 }
 
-.uiux-cta-button:hover {
+.webapp-cta-button:hover {
   animation: none;
 } 

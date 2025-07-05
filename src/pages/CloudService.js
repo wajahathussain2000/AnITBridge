@@ -1,151 +1,355 @@
-import React, { useState } from 'react';
-import { Box, Typography, Container, Grid, Card, CardContent, List, ListItem, ListItemIcon, ListItemText, Button, Switch, FormControlLabel } from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import { Box, Typography, Container, Grid, Card, Button, Chip, Divider } from '@mui/material';
+import { motion } from 'framer-motion';
 import CloudQueueIcon from '@mui/icons-material/CloudQueue';
 import SecurityIcon from '@mui/icons-material/Security';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import SwapHorizIcon from '@mui/icons-material/SwapHoriz';
+import ArchitectureIcon from '@mui/icons-material/Architecture';
+import SpeedIcon from '@mui/icons-material/Speed';
 import Navbar from '../components/Navbar';
-import Lottie from 'lottie-react';
-import cloudArchitectureLottie from '../assets/cloud-architecture-lottie.json';
+import './CloudService.css';
 
-const cloudBenefits = [
+const cloudSolutions = [
   {
-    icon: <CloudQueueIcon color="primary" fontSize="large" />, 
-    title: 'Strategic Cloud Roadmaps',
-    desc: 'Tailored cloud strategies that align with your business vision and accelerate digital transformation.'
+    icon: <ArchitectureIcon sx={{ fontSize: 32, color: '#0072ce' }} />,
+    title: 'Cloud Architecture',
+    description: 'Scalable, resilient infrastructure designed for enterprise growth',
+    features: ['Microservices Architecture', 'Auto-scaling', 'Load Balancing', 'High Availability']
   },
   {
-    icon: <SecurityIcon color="primary" fontSize="large" />,
-    title: 'Enterprise-Grade Security',
-    desc: 'Robust security frameworks and compliance to safeguard your data and ensure peace of mind.'
+    icon: <SecurityIcon sx={{ fontSize: 32, color: '#0072ce' }} />,
+    title: 'Security & Compliance',
+    description: 'Enterprise-grade security with industry compliance standards',
+    features: ['SOC 2 Type II', 'GDPR Compliance', 'Zero Trust Security', '24/7 Monitoring']
   },
   {
-    icon: <TrendingUpIcon color="primary" fontSize="large" />,
-    title: 'Cost & Performance Optimization',
-    desc: 'Maximize ROI with intelligent resource allocation and continuous performance tuning.'
+    icon: <TrendingUpIcon sx={{ fontSize: 32, color: '#0072ce' }} />,
+    title: 'Performance Optimization',
+    description: 'Data-driven optimization for maximum efficiency and cost savings',
+    features: ['Cost Analysis', 'Performance Tuning', 'Resource Optimization', 'ROI Tracking']
   },
   {
-    icon: <SwapHorizIcon color="primary" fontSize="large" />,
-    title: 'Seamless Cloud Migration',
-    desc: 'Effortless migration with minimal disruption, ensuring business continuity and agility.'
-  },
+    icon: <SwapHorizIcon sx={{ fontSize: 32, color: '#0072ce' }} />,
+    title: 'Migration Services',
+    description: 'Seamless cloud migration with zero business disruption',
+    features: ['Lift & Shift', 'Re-architecture', 'Data Migration', 'Testing & Validation']
+  }
 ];
 
-const cloudImage = 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&w=600&q=80';
-
-// --- Gradient Styles ---
-// Static gradient style
-const staticGradient = {
-  background: 'linear-gradient(90deg, #232526 0%, #414345 50%, #485563 100%)',
-  color: '#fff',
-};
-// Animated gradient style
-const animatedGradient = {
-  background: 'linear-gradient(270deg, #232526, #414345, #485563, #232526)',
-  backgroundSize: '600% 600%',
-  animation: 'gradientMove 12s ease infinite',
-  color: '#fff',
-};
-
-// --- Add animated gradient keyframes ---
-// This <style> tag is for preview/demo. Move to CSS file for production.
-const GradientKeyframes = () => (
-  <style>{`
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-  `}</style>
-);
+const stats = [
+  { value: '99.9%', label: 'Uptime SLA' },
+  { value: '50%', label: 'Cost Reduction' },
+  { value: '24/7', label: 'Support' },
+  { value: '48hrs', label: 'Response Time' }
+];
 
 const CloudService = () => {
-  const [animated, setAnimated] = useState(true);
+  const [activeTab, setActiveTab] = useState(0);
+
+  // Handle Get Started button click
+  const handleGetStartedClick = () => {
+    const solutionsSection = document.querySelector('.cloud-solutions-section');
+    if (solutionsSection) {
+      solutionsSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
+  // Handle CTA button click
+  const handleCTAClick = () => {
+    window.location.href = '/contact';
+  };
 
   return (
-    <Box sx={{ background: '#f8fafc', minHeight: '100vh' }}>
-      <GradientKeyframes />
-    <Navbar />
+    <div className="cloud-service-container">
+      <Navbar />
+      
       {/* Hero Section */}
-      <Box
-        sx={{
-          minHeight: '45vh',
-          display: 'flex',
-          alignItems: 'center',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          background: 'linear-gradient(90deg, #e6f7fe 0%, #b2fefa 100%)',
-          color: '#0a2239',
-          py: { xs: 8, md: 12 },
-          pt: { xs: 16, md: 20 },
-        }}
-      >
-        <Container maxWidth="lg">
-          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'flex-start', justifyContent: 'space-between', width: '100%' }}>
-            {/* Left: Content */}
-            <Box sx={{ flex: 1, pr: { md: 6 }, mb: { xs: 4, md: 0 }, position: 'relative' }}>
-              <Typography variant="h2" fontWeight={800} gutterBottom>
-                Cloud & Solutions Architecture
-              </Typography>
-              <Typography variant="h5" color="#222" mb={3}>
-                Elevate your business with scalable, secure, and future-ready cloud solutions designed for innovation and growth.
-              </Typography>
-              <Button variant="contained" size="large" sx={{ background: '#fff', color: '#0072ce', borderRadius: 3, fontWeight: 700, mt: 2, '&:hover': { background: '#e3f2fd' } }} href="#cloud-benefits">
-                Discover Our Approach
-              </Button>
-            </Box>
-            {/* Right: Lottie Animation */}
-            <Box sx={{ flex: 1, display: 'flex', justifyContent: { xs: 'flex-start', md: 'center' }, alignItems: 'center', width: '100%', mt: { xs: 0, md: 6 } }}>
-              <Box sx={{ width: '100%', maxWidth: 340 }}>
-                <Lottie animationData={cloudArchitectureLottie} loop={true} style={{ width: '100%', height: 'auto' }} />
-              </Box>
-            </Box>
-          </Box>
-        </Container>
-      </Box>
-      {/* Main Content */}
-      <Container maxWidth="lg" sx={{ py: 8 }}>
-        <Grid container justifyContent="center" sx={{ mt: { xs: 2, md: 6 }, mb: 8 }}>
-          <Grid item xs={12}>
-            <Card id="cloud-benefits" elevation={3} sx={{ p: { xs: 2, md: 6 }, borderRadius: 4, background: 'rgba(255,255,255,0.95)', maxWidth: '1200px', margin: '0 auto' }}>
-              <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center', justifyContent: 'space-between' }}>
-                <Box sx={{ flex: 1, pr: { md: 6 }, width: { xs: '100%', md: '60%' } }}>
-                  <Typography variant="h4" fontWeight={700} gutterBottom color="primary.main">
-                    Why Choose Our Cloud Solutions?
-                  </Typography>
-                  <Typography variant="body1" color="text.secondary" mb={3}>
-                    Unlock the full potential of your business with scalable, secure, and future-ready cloud architecture. Our solutions are designed to accelerate innovation, reduce costs, and ensure seamless digital transformation.
-                  </Typography>
-                  <List>
-                    {cloudBenefits.map((benefit, idx) => (
-                      <ListItem key={idx} alignItems="flex-start" sx={{ pl: 0 }}>
-                        <ListItemIcon sx={{ minWidth: 40 }}>{benefit.icon}</ListItemIcon>
-                        <ListItemText
-                          primary={<Typography variant="subtitle1" fontWeight={600}>{benefit.title}</Typography>}
-                          secondary={<Typography variant="body2" color="text.secondary">{benefit.desc}</Typography>}
-                        />
-                      </ListItem>
-                    ))}
-                  </List>
-                  <Button variant="contained" size="large" sx={{ mt: 3, borderRadius: 3 }} color="primary" href="/contact">
+      <section className="cloud-hero-section">
+        <div className="cloud-hero-background"></div>
+        <div className="cloud-hero-content">
+          <div className="cloud-hero-grid">
+            <div className="cloud-hero-left">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              >
+                <motion.div 
+                  className="cloud-hero-badge"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                >
+                  Enterprise Cloud Solutions
+                </motion.div>
+                <motion.h1 
+                  className="cloud-hero-title"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                >
+                  Cloud Infrastructure & Solutions
+                </motion.h1>
+                <motion.p 
+                  className="cloud-hero-subtitle"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                >
+                  Transform your business with enterprise-grade cloud solutions. 
+                  Scalable, secure, and optimized for performance.
+                </motion.p>
+                <motion.div 
+                  className="cloud-hero-buttons"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.5 }}
+                >
+                  <Button 
+                    variant="contained"
+                    size="large"
+                    onClick={handleGetStartedClick}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    component={motion.button}
+                    sx={{
+                      background: 'linear-gradient(135deg, #0072ce 0%, #0056b3 100%)',
+                      color: 'white',
+                      padding: '1rem 2rem',
+                      borderRadius: '12px',
+                      fontWeight: 600,
+                      fontSize: '1rem',
+                      textTransform: 'none',
+                      border: 'none',
+                      boxShadow: '0 8px 25px rgba(0, 114, 206, 0.3)',
+                      transition: 'all 0.3s ease',
+                      '&:hover': {
+                        transform: 'translateY(-2px)',
+                        boxShadow: '0 12px 35px rgba(0, 114, 206, 0.4)',
+                        background: 'linear-gradient(135deg, #0056b3 0%, #004494 100%)'
+                      }
+                    }}
+                  >
                     Get Started
                   </Button>
-                </Box>
-                <Box sx={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', width: { xs: '100%', md: '40%' }, mt: { xs: 4, md: 0 } }}>
-                  <Box
-                    component="img"
-                    src="/images/technology-integrated-everyday-life.jpg"
-                    alt="Cloud computing technology illustration"
-                    sx={{ width: '100%', maxWidth: 340, minWidth: 220, height: '80%', minHeight: 180, borderRadius: 3, boxShadow: 2, objectFit: 'cover', my: { xs: 2, md: 4 } }}
-                  />
-                </Box>
-              </Box>
-            </Card>
-          </Grid>
-        </Grid>
-      </Container>
-    </Box>
-);
+                </motion.div>
+              </motion.div>
+            </div>
+            
+            <div className="cloud-hero-right">
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              >
+                <motion.div 
+                  className="cloud-stats-card"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="cloud-stats-background"></div>
+                  <div className="cloud-stats-content">
+                    <motion.h3 
+                      className="cloud-stats-title"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.4 }}
+                    >
+                      Why Choose Our Cloud Solutions?
+                    </motion.h3>
+                    <div className="cloud-stats-grid">
+                      {stats.map((stat, index) => (
+                        <motion.div 
+                          key={index} 
+                          className="cloud-stat-item"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
+                        >
+                          <span className="cloud-stat-value">{stat.value}</span>
+                          <div className="cloud-stat-label">{stat.label}</div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Solutions Section */}
+      <section className="cloud-solutions-section">
+        <motion.div 
+          className="cloud-solutions-header"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="cloud-solutions-title">
+            Comprehensive Cloud Solutions
+          </h2>
+          <p className="cloud-solutions-subtitle">
+            From architecture design to ongoing optimization, we provide end-to-end cloud solutions
+          </p>
+        </motion.div>
+
+        <div className="cloud-solutions-grid">
+          {cloudSolutions.map((solution, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -5 }}
+            >
+              <div className="cloud-solution-card">
+                <motion.div 
+                  className="cloud-solution-icon"
+                  whileHover={{ rotate: 5, scale: 1.1 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {solution.icon}
+                </motion.div>
+                <h3 className="cloud-solution-title">
+                  {solution.title}
+                </h3>
+                <p className="cloud-solution-description">
+                  {solution.description}
+                </p>
+                <ul className="cloud-solution-features">
+                  {solution.features.map((feature, featureIndex) => (
+                    <motion.li 
+                      key={featureIndex} 
+                      className="cloud-solution-feature"
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.4, delay: featureIndex * 0.1 }}
+                      viewport={{ once: true }}
+                    >
+                      <div className="cloud-solution-feature-dot"></div>
+                      {feature}
+                    </motion.li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="cloud-process-section">
+        <div className="cloud-process-container">
+          <motion.div 
+            className="cloud-process-header"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="cloud-process-title">
+              Our Implementation Process
+            </h2>
+            <p className="cloud-process-subtitle">
+              A proven methodology that ensures successful cloud transformation
+            </p>
+          </motion.div>
+
+          <div className="cloud-process-grid">
+            {[
+              { step: '01', title: 'Assessment', desc: 'Comprehensive analysis of your current infrastructure and business requirements' },
+              { step: '02', title: 'Strategy', desc: 'Develop a tailored cloud strategy aligned with your business objectives' },
+              { step: '03', title: 'Implementation', desc: 'Execute the migration with minimal disruption to your operations' },
+              { step: '04', title: 'Optimization', desc: 'Continuous monitoring and optimization for peak performance' }
+            ].map((phase, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -5 }}
+              >
+                <div className="cloud-process-step">
+                  <motion.div 
+                    className="cloud-process-number"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {phase.step}
+                  </motion.div>
+                  <h3 className="cloud-process-step-title">
+                    {phase.title}
+                  </h3>
+                  <p className="cloud-process-step-desc">
+                    {phase.desc}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="cloud-cta-section">
+        <motion.div 
+          className="cloud-cta-card"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          whileHover={{ scale: 1.02 }}
+        >
+          <div className="cloud-cta-background"></div>
+          <div className="cloud-cta-content">
+            <motion.h2 
+              className="cloud-cta-title"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              Ready to Transform Your Infrastructure?
+            </motion.h2>
+            <motion.p 
+              className="cloud-cta-subtitle"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              Let's discuss how our cloud solutions can accelerate your business growth
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <Button 
+                className="shared-button shared-button-large"
+                onClick={handleCTAClick}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                component={motion.button}
+              >
+                Schedule a Consultation
+              </Button>
+            </motion.div>
+          </div>
+        </motion.div>
+      </section>
+    </div>
+  );
 };
 
 export default CloudService; 
