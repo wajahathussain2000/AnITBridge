@@ -18,59 +18,47 @@ const HeroSection = ({ flying = false, contactStyle = false, title = 'We Bridge 
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
   const [isHello, setIsHello] = useState(false);
   const [hasFlown, setHasFlown] = useState(false);
-  const [isMoving, setIsMoving] = useState(false);
   const containerRef = useRef(null);
 
   // Get container size for random position calculation
   useEffect(() => {
-    const updateContainerSize = () => {
-      if (flying && containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect();
-        setContainerSize({ width: rect.width, height: rect.height });
-        
-        // Calculate safe zones to avoid content area
-        const contentAreaWidth = 600; // Approximate width of text content area
-        const contentAreaHeight = 400; // Approximate height of text content area
-        const robotWidth = 400;
-        const robotHeight = 350;
-        
-        // Define safe zones with better constraints
-        const safeZones = [
-          // Right side zone (preferred)
-          {
-            x: Math.max(rect.width * 0.65, contentAreaWidth + 80),
-            y: Math.max(50, Math.random() * (rect.height - robotHeight - 100)),
-            width: Math.max(100, rect.width - Math.max(rect.width * 0.65, contentAreaWidth + 80) - robotWidth),
-            height: Math.max(200, rect.height - robotHeight - 100)
-          },
-          // Top-right zone
-          {
-            x: Math.max(rect.width * 0.7, contentAreaWidth + 100),
-            y: Math.max(20, Math.random() * (rect.height * 0.4)),
-            width: Math.max(100, rect.width - Math.max(rect.width * 0.7, contentAreaWidth + 100) - robotWidth),
-            height: Math.max(150, rect.height * 0.4 - 20)
-          }
-        ];
-        
-        // Choose a random safe zone
-        const randomZone = safeZones[Math.floor(Math.random() * safeZones.length)];
-        
-        // Set initial random position within the safe zone
-        setFlyPos({
-          x: randomZone.x + Math.random() * randomZone.width,
-          y: randomZone.y + Math.random() * randomZone.height,
-        });
-      }
-    };
-
-    updateContainerSize();
-    
-    // Add window resize listener
-    window.addEventListener('resize', updateContainerSize);
-    
-    return () => {
-      window.removeEventListener('resize', updateContainerSize);
-    };
+    if (flying && containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      setContainerSize({ width: rect.width, height: rect.height });
+      
+      // Calculate safe zones to avoid content area
+      const contentAreaWidth = 600; // Approximate width of text content area
+      const contentAreaHeight = 400; // Approximate height of text content area
+      const robotWidth = 400;
+      const robotHeight = 350;
+      
+      // Define safe zones (right side and bottom areas)
+      const safeZones = [
+        // Right side zone
+        {
+          x: Math.max(rect.width * 0.6, contentAreaWidth + 50),
+          y: Math.random() * (rect.height - robotHeight),
+          width: rect.width - Math.max(rect.width * 0.6, contentAreaWidth + 50) - robotWidth,
+          height: rect.height - robotHeight
+        },
+        // Bottom zone (below content)
+        {
+          x: Math.random() * (rect.width - robotWidth),
+          y: Math.max(rect.height * 0.7, contentAreaHeight + 50),
+          width: rect.width - robotWidth,
+          height: rect.height - Math.max(rect.height * 0.7, contentAreaHeight + 50) - robotHeight
+        }
+      ];
+      
+      // Choose a random safe zone
+      const randomZone = safeZones[Math.floor(Math.random() * safeZones.length)];
+      
+      // Set initial random position within the safe zone
+      setFlyPos({
+        x: randomZone.x + Math.random() * randomZone.width,
+        y: randomZone.y + Math.random() * randomZone.height,
+      });
+    }
   }, [flying]);
 
   // Parallax effect for background balls
@@ -99,57 +87,16 @@ const HeroSection = ({ flying = false, contactStyle = false, title = 'We Bridge 
           
           // Choose a safe final position (preferably right side)
           const safeX = Math.max(rect.width * 0.7, contentAreaWidth + 100);
-          const safeY = Math.max(50, Math.random() * (rect.height - robotHeight - 100));
+          const safeY = Math.random() * (rect.height - robotHeight);
           
           setFlyPos({
             x: safeX,
             y: safeY,
           });
-          setIsMoving(true);
         }
       }, 1500); // Wait 1.5s after showing Hello, then move to safe position
     }
   };
-
-  // Continuous movement effect
-  useEffect(() => {
-    if (flying && isMoving && containerSize.width > 0) {
-      const moveInterval = setInterval(() => {
-        const rect = containerRef.current?.getBoundingClientRect();
-        if (rect) {
-          const contentAreaWidth = 600;
-          const robotWidth = 400;
-          const robotHeight = 350;
-          
-          // Generate new safe position
-          const safeZones = [
-            // Right side zone
-            {
-              x: Math.max(rect.width * 0.65, contentAreaWidth + 80),
-              y: Math.max(50, Math.random() * (rect.height - robotHeight - 100)),
-              width: Math.max(100, rect.width - Math.max(rect.width * 0.65, contentAreaWidth + 80) - robotWidth),
-              height: Math.max(200, rect.height - robotHeight - 100)
-            },
-            // Top-right zone
-            {
-              x: Math.max(rect.width * 0.7, contentAreaWidth + 100),
-              y: Math.max(20, Math.random() * (rect.height * 0.4)),
-              width: Math.max(100, rect.width - Math.max(rect.width * 0.7, contentAreaWidth + 100) - robotWidth),
-              height: Math.max(150, rect.height * 0.4 - 20)
-            }
-          ];
-          
-          const randomZone = safeZones[Math.floor(Math.random() * safeZones.length)];
-          const newX = randomZone.x + Math.random() * randomZone.width;
-          const newY = randomZone.y + Math.random() * randomZone.height;
-          
-          setFlyPos({ x: newX, y: newY });
-        }
-      }, 4000); // Move every 4 seconds
-      
-      return () => clearInterval(moveInterval);
-    }
-  }, [flying, isMoving, containerSize.width]);
 
   // Handle Get Started button click
   const handleGetStartedClick = () => {
@@ -181,7 +128,7 @@ const HeroSection = ({ flying = false, contactStyle = false, title = 'We Bridge 
         justifyContent: 'center',
         position: 'relative',
         overflow: 'hidden',
-        pt: { xs: '140px', md: '160px' },
+        pt: { xs: '110px', md: '130px' },
       }}
       onMouseMove={contactStyle ? undefined : handleMouseMove}
       ref={containerRef}
@@ -237,7 +184,6 @@ const HeroSection = ({ flying = false, contactStyle = false, title = 'We Bridge 
           >
             {/* Left: Text Content */}
             <Box
-              className="hero-content-text"
               sx={{
                 flex: 1.2,
                 display: 'flex',
@@ -248,7 +194,7 @@ const HeroSection = ({ flying = false, contactStyle = false, title = 'We Bridge 
                 minWidth: 340,
                 mt: { xs: 4, md: 10 },
                 position: 'relative',
-                zIndex: 3,
+                zIndex: 2,
               }}
             >
                 <motion.div
@@ -268,21 +214,13 @@ const HeroSection = ({ flying = false, contactStyle = false, title = 'We Bridge 
                     size="large"
                     onClick={handleGetStartedClick}
                     sx={{
-                      background: 'linear-gradient(135deg, #0072ce 0%, #0056b3 100%)',
-                      color: 'white',
-                      padding: '1rem 2rem',
-                      borderRadius: '12px',
-                      fontWeight: 600,
-                      fontSize: '1rem',
-                      textTransform: 'none',
-                      border: 'none',
-                      boxShadow: '0 8px 25px rgba(0, 114, 206, 0.3)',
-                      transition: 'all 0.3s ease',
-                      '&:hover': {
-                        transform: 'translateY(-2px)',
-                        boxShadow: '0 12px 35px rgba(0, 114, 206, 0.4)',
-                        background: 'linear-gradient(135deg, #0056b3 0%, #004494 100%)'
-                      }
+                      background: '#0072ce',
+                      borderRadius: '24px',
+                      fontWeight: 700,
+                      px: 5,
+                      py: 1.5,
+                      boxShadow: '0 4px 24px rgba(0,114,206,0.10)',
+                      '&:hover': { background: '#0a2239' },
                     }}
                   >
                     Get Started
@@ -294,9 +232,8 @@ const HeroSection = ({ flying = false, contactStyle = false, title = 'We Bridge 
             {/* Robot Lottie: flying or static */}
             {flying && containerSize.width > 0 && containerSize.height > 0 ? (
                 <motion.div
-                className="flying-robot"
                 animate={{ x: flyPos.x, y: flyPos.y }}
-                transition={{ duration: 3, ease: 'easeInOut' }}
+                transition={{ duration: 2, ease: 'easeInOut' }}
                 onAnimationComplete={handleAnimationComplete}
                 style={{
                   width: 400,
@@ -304,15 +241,14 @@ const HeroSection = ({ flying = false, contactStyle = false, title = 'We Bridge 
                   position: 'absolute',
                   top: 0,
                   left: 0,
-                  zIndex: isHello ? 1 : 0,
+                  zIndex: isHello ? 3 : 1,
                   pointerEvents: 'none',
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
-                  filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.1))',
                 }}
                 >
-                <Lottie animationData={techAnimation} loop={true} style={{ width: 400, height: 350 }} />
+                <Lottie animationData={techAnimation} loop={false} style={{ width: 400, height: 350 }} />
                 {isHello && (
                   <Box
                     sx={{
@@ -330,7 +266,6 @@ const HeroSection = ({ flying = false, contactStyle = false, title = 'We Bridge 
                       pointerEvents: 'none',
                       boxShadow: 2,
                       whiteSpace: 'nowrap',
-                      zIndex: 4,
                     }}
                   >
                     Hello!
@@ -339,21 +274,20 @@ const HeroSection = ({ flying = false, contactStyle = false, title = 'We Bridge 
                 </motion.div>
             ) : (
               <Box
-                className="flying-robot"
                 sx={{
                   width: 400,
                   height: 350,
                   position: 'absolute',
                   top: 0,
                   left: 0,
-                  zIndex: 0,
+                  zIndex: 1,
                   pointerEvents: 'none',
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
                 }}
               >
-                <Lottie animationData={techAnimation} loop={true} style={{ width: 400, height: 350 }} />
+                <Lottie animationData={techAnimation} loop={false} style={{ width: 400, height: 350 }} />
               </Box>
             )}
           </Box>
