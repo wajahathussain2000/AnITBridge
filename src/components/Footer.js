@@ -30,7 +30,7 @@ const Footer = () => {
     </div>
     <div className="modern-footer-content">
       <div className="modern-footer-logo-col">
-        <img src="/images/logo.png" alt="AnITBridge Logo" className="footer-logo-img" />
+        <img src="/images/itbridgelogo-removebg-preview.png" alt="AnITBridge Logo" className="footer-logo-img" />
       </div>
       <div className="modern-footer-col">
         <div className="modern-footer-col-title">PARTNERSHIPS</div>

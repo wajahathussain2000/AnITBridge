@@ -37,7 +37,7 @@ const Navbar = () => {
     <nav className={`navbar${scrolled ? ' navbar-scrolled' : ''}`}>  
       <div className="navbar-container">
         <div className="navbar-left">
-          <img src="/images/logo.png" alt="Logo" className="navbar-logo" />
+          <img src="/images/itbridgelogo-removebg-preview.png" alt="Logo" className="navbar-logo" />
         </div>
         <ul className={isOpen ? 'nav-menu active' : 'nav-menu'}>
           <li className="nav-item"><Link to="/" className="nav-links">Home</Link></li>
